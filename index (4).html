@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEDx Johns Creek 2026 | EVOLVE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ==================== RESET & BASE ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: #ffffff;
+        }
+
+        /* ==================== TYPOGRAPHY ==================== */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* ==================== BUTTONS ==================== */
+        .btn {
+            display: inline-block;
+            padding: 18px 48px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .btn-primary {
+            background-color: #eb0028;
+            color: #ffffff;
+            box-shadow: 0 4px 20px rgba(235, 0, 40, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #c40022;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(235, 0, 40, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #ffffff;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 15s ease infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(235, 0, 40, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            color: #ffffff;
+        }
+
+        .hero-subtitle {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #eb0028;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: clamp(80px, 15vw, 180px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #eb0028 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-size: clamp(20px, 3vw, 32px);
+            font-weight: 300;
+            margin-bottom: 25px;
+            line-height: 1.4;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-description {
+            font-size: clamp(16px, 2vw, 20px);
+            max-width: 800px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ==================== SECTIONS ==================== */
+        section {
+            padding: 120px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            margin-bottom: 60px;
+            text-align: center;
+            position: relative;
+            letter-spacing: -1px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #eb0028;
+            margin: 30px auto 0;
+        }
+
+        /* ==================== ABOUT THEME SECTION ==================== */
+        .about-theme {
+            background-color: #ffffff;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 20px;
+            line-height: 1.9;
+            text-align: center;
+            color: #333333;
+        }
+
+        /* ==================== HORIZONTAL SCROLL PILLARS ==================== */
+        .pillars {
+            background: linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%);
+            padding: 120px 0;
+            overflow: hidden;
+        }
+
+        .pillars-title {
+            text-align: center;
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+
+        .pillars-subtitle {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 80px;
+            padding: 0 20px;
+        }
+
+        .pillars-scroll-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 0 20px 40px 20px;
+            gap: 40px;
+        }
+
+        .pillars-scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .pillar-panel {
+            min-width: 450px;
+            scroll-snap-align: center;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 60px 50px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: all 0.4s ease;
+            border-left: 6px solid #eb0028;
+        }
+
+        .pillar-panel:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(235, 0, 40, 0.15);
+        }
+
+        .pillar-number {
+            font-size: 80px;
+            font-weight: 900;
+            color: rgba(235, 0, 40, 0.1);
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            line-height: 1;
+        }
+
+        .pillar-icon {
+            font-size: 48px;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .pillar-panel-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #000000;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pillar-panel-description {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #555555;
+            position: relative;
+            z-index: 2;
+        }
+
+        .scroll-indicator {
+            text-align: center;
+            margin-top: 40px;
+            color: #999;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* ==================== SPEAKERS SECTION ==================== */
+        .speakers {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .speakers .section-title {
+            color: #ffffff;
+        }
+
+        .speakers .section-title::after {
+            background-color: #eb0028;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .speaker-card {
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .speaker-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .speaker-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #333333, #1a1a1a);
+            margin: 0 auto 25px;
+            border: 4px solid #eb0028;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: #666;
+            transition: all 0.4s ease;
+        }
+
+        .speaker-card:hover .speaker-image {
+            border-color: #ff1a42;
+            box-shadow: 0 0 40px rgba(235, 0, 40, 0.4);
+        }
+
+        .speaker-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .speaker-teaser {
+            font-size: 15px;
+            color: #999999;
+            font-style: italic;
+        }
+
+        /* ==================== TEAM SECTION ==================== */
+        .team {
+            background-color: #f8f8f8;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .team-card {
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .team-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e0e0e0, #cccccc);
+            margin: 0 auto 20px;
+            border: 3px solid #eb0028;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #999;
+            transition: all 0.4s ease;
+        }
+
+        .team-card:hover .team-image {
+            border-color: #c40022;
+            box-shadow: 0 10px 30px rgba(235, 0, 40, 0.2);
+        }
+
+        .team-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #000000;
+        }
+
+        .team-role {
+            font-size: 15px;
+            color: #eb0028;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ==================== APPLICATION SECTION ==================== */
+        .application {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .application-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .application-description {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 50px;
+        }
+
+        /* ==================== SPONSORS SECTION ==================== */
+        .sponsors {
+            background-color: #ffffff;
+            padding: 100px 20px;
+            overflow: hidden;
+        }
+
+        .sponsors-carousel {
+            position: relative;
+            overflow: hidden;
+            margin-top: 60px;
+        }
+
+        .sponsors-track {
+            display: flex;
+            gap: 80px;
+            animation: scroll 40s linear infinite;
+        }
+
+        .sponsors-carousel:hover .sponsors-track {
+            animation-play-state: paused;
+        }
+
+        .sponsor-logo {
+            width: 180px;
+            height: 100px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #999;
+            font-weight: 600;
+            filter: grayscale(100%);
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+            border: 2px solid #e0e0e0;
+        }
+
+        .sponsor-logo:hover {
+            filter: grayscale(0%);
+            border-color: #eb0028;
+            transform: scale(1.05);
+        }
+
+        /* ==================== CTA SECTION ==================== */
+        .cta-section {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 900;
+            margin-bottom: 40px;
+            letter-spacing: -2px;
+        }
+
+        .cta-description {
+            font-size: clamp(18px, 2.5vw, 24px);
+            max-width: 800px;
+            margin: 0 auto 60px;
+            line-height: 1.8;
+            color: #cccccc;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .contact-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-email {
+            font-size: 24px;
+            color: #eb0028;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-email:hover {
+            color: #ff1a42;
+        }
+
+        .contact-info {
+            font-size: 18px;
+            margin-top: 30px;
+            color: #cccccc;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .social-icon:hover {
+            background-color: #eb0028;
+            border-color: #eb0028;
+            transform: translateY(-5px);
+            color: #ffffff;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background-color: #000000;
+            color: #666666;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            border-top: 1px solid #222222;
+        }
+
+        .footer-tedx {
+            color: #999999;
+            margin-bottom: 10px;
+        }
+
+        .footer-tedx strong {
+            color: #eb0028;
+        }
+
+        /* ==================== SCROLL REVEAL ==================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            section {
+                padding: 80px 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                padding: 16px 40px;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .pillar-panel {
+                min-width: 320px;
+                padding: 40px 30px;
+            }
+
+            .pillar-number {
+                font-size: 60px;
+            }
+
+            .speaker-image,
+            .team-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .sponsors-track {
+                gap: 50px;
+            }
+
+            .sponsor-logo {
+                width: 140px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-subtitle fade-in">TEDx Johns Creek 2026</div>
+            <h1 class="hero-title fade-in delay-1">EVOLVE</h1>
+            <p class="hero-tagline fade-in delay-2">Growth in motion. The courage to change. The vision to become more than we were yesterday.</p>
+            <p class="hero-description fade-in delay-3">At TEDx Johns Creek, EVOLVE is a call to thinkers, creators, and changemakers who are not just adapting to the future — they are actively shaping it.</p>
+            <div class="hero-buttons fade-in delay-3">
+                <a href="#contact" class="btn btn-primary">Join Us</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT THE THEME SECTION -->
+    <section id="about" class="about-theme">
+        <div class="container">
+            <h2 class="section-title reveal">OUR THEME FOR 2026 IS EVOLVE</h2>
+            <div class="about-content reveal">
+                At TEDx Johns Creek, EVOLVE is a call to thinkers, creators, and changemakers who are not just adapting to the future — they are actively shaping it. Through powerful ideas and lived experiences, we explore how growth begins within and radiates outward to transform families, communities, industries, and the world.
+            </div>
+        </div>
+    </section>
+
+    <!-- HORIZONTAL SCROLL PILLARS SECTION -->
+    <section class="pillars">
+        <h2 class="pillars-title reveal">THE FIVE PILLARS OF EVOLVE</h2>
+        <p class="pillars-subtitle reveal">Scroll to explore each dimension of transformation</p>
+        
+        <div class="pillars-scroll-container">
+            
+            <div class="pillar-panel">
+                <span class="pillar-number">01</span>
+                <span class="pillar-icon">🔴</span>
+                <h3 class="pillar-panel-title">Personal Evolution</h3>
+                <p class="pillar-panel-description">The inner journeys — overcoming fear, redefining identity, healing, learning, and discovering purpose. Every breakthrough begins with someone choosing to grow.</p>
+            </div>
+
+            <div class="pillar-panel">
+                <span class="pillar-number">02</span>
+                <span class="pillar-icon">🔴</span>
+                <h3 class="pillar-panel-title">Social Evolution</h3>
+                <p class="pillar-panel-description">How communities rethink systems, amplify unheard voices, and build more inclusive, compassionate societies.</p>
+            </div>
+
+            <div class="pillar-panel">
+                <span class="pillar-number">03</span>
+                <span class="pillar-icon">🔴</span>
+                <h3 class="pillar-panel-title">Innovation & Ideas</h3>
+                <p class="pillar-panel-description">New technologies, bold research, creative solutions, and unexpected perspectives that move humanity forward.</p>
+            </div>
+
+            <div class="pillar-panel">
+                <span class="pillar-number">04</span>
+                <span class="pillar-icon">🔴</span>
+                <h3 class="pillar-panel-title">Leadership Evolution</h3>
+                <p class="pillar-panel-description">From power to purpose. From authority to empathy. The leaders of tomorrow must evolve beyond titles into impact.</p>
+            </div>
+
+            <div class="pillar-panel">
+                <span class="pillar-number">05</span>
+                <span class="pillar-icon">🔴</span>
+                <h3 class="pillar-panel-title">Resilience & Reinvention</h3>
+                <p class="pillar-panel-description">Sometimes evolution isn't a choice — it's survival. Stories of setbacks turning into comebacks remind us that transformation is always possible.</p>
+            </div>
+
+        </div>
+        
+        <div class="scroll-indicator">← Scroll to explore →</div>
+    </section>
+
+    <!-- SPEAKERS SECTION -->
+    <section class="speakers">
+        <div class="container">
+            <h2 class="section-title reveal">MEET OUR SPEAKERS</h2>
+            <div class="speakers-grid">
+                
+                <div class="speaker-card reveal">
+                    <div class="speaker-image">👤</div>
+                    <h3 class="speaker-name">Coming Soon</h3>
+                    <p class="speaker-teaser">Visionary thinker reshaping the future</p>
+                </div>
+
+                <div class="speaker-card reveal">
+                    <div class="speaker-image">👤</div>
+                    <h3 class="speaker-name">Coming Soon</h3>
+                    <p class="speaker-teaser">Innovator breaking boundaries</p>
+                </div>
+
+                <div class="speaker-card reveal">
+                    <div class="speaker-image">👤</div>
+                    <h3 class="speaker-name">Coming Soon</h3>
+                    <p class="speaker-teaser">Leader driving global change</p>
+                </div>
+
+                <div class="speaker-card reveal">
+                    <div class="speaker-image">👤</div>
+                    <h3 class="speaker-name">Coming Soon</h3>
+                    <p class="speaker-teaser">Creator inspiring transformation</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- APPLICATION SECTION -->
+    <section class="application">
+        <div class="container">
+            <h2 class="section-title reveal">APPLY TO SPEAK OR JOIN THE TEAM</h2>
+            <div class="application-content reveal">
+                <p class="application-description">
+                    Have a powerful idea worth spreading? Want to be part of the team that brings EVOLVE to life? We're looking for speakers who inspire, challenge, and transform — and organizers who share our vision. Download the application and take the first step toward shaping the future with us.
+                </p>
+                <a href="#" class="btn btn-primary">Download Application (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORGANIZING TEAM SECTION -->
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title reveal">THE ORGANIZING TEAM</h2>
+            <div class="team-grid">
+                
+                <div class="team-card reveal">
+                    <div class="team-image">👤</div>
+                    <h3 class="team-name">Divya Anand</h3>
+                    <p class="team-role">Lead Organizer</p>
+                </div>
+
+                <div class="team-card reveal">
+                    <div class="team-image">👤</div>
+                    <h3 class="team-name">Team Member</h3>
+                    <p class="team-role">Creative Director</p>
+                </div>
+
+                <div class="team-card reveal">
+                    <div class="team-image">👤</div>
+                    <h3 class="team-name">Team Member</h3>
+                    <p class="team-role">Operations Lead</p>
+                </div>
+
+                <div class="team-card reveal">
+                    <div class="team-image">👤</div>
+                    <h3 class="team-name">Team Member</h3>
+                    <p class="team-role">Marketing Lead</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SPONSORS SECTION -->
+    <section class="sponsors">
+        <div class="container">
+            <h2 class="section-title reveal">OUR SPONSORS</h2>
+        </div>
+        <div class="sponsors-carousel">
+            <div class="sponsors-track">
+                <div class="sponsor-logo">SPONSOR 1</div>
+                <div class="sponsor-logo">SPONSOR 2</div>
+                <div class="sponsor-logo">SPONSOR 3</div>
+                <div class="sponsor-logo">SPONSOR 4</div>
+                <div class="sponsor-logo">SPONSOR 5</div>
+                <div class="sponsor-logo">SPONSOR 6</div>
+                <!-- Duplicate for seamless loop -->
+                <div class="sponsor-logo">SPONSOR 1</div>
+                <div class="sponsor-logo">SPONSOR 2</div>
+                <div class="sponsor-logo">SPONSOR 3</div>
+                <div class="sponsor-logo">SPONSOR 4</div>
+                <div class="sponsor-logo">SPONSOR 5</div>
+                <div class="sponsor-logo">SPONSOR 6</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION SECTION -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title reveal">EVOLVE<br>TEDx Johns Creek 2026</h2>
+            <p class="cta-description reveal">EVOLVE is about growth in motion — the courage to change, the wisdom to adapt, and the vision to become more than we were yesterday.</p>
+            <a href="#contact" class="btn btn-primary reveal">COME JOIN US</a>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title reveal">GET IN TOUCH</h2>
+            <div class="contact-content reveal">
+                <p style="font-size: 20px; margin-bottom: 30px;">Ready to be part of something transformative?</p>
+                <a href="mailto:tedxjohnscreek@gmail.com" class="contact-email">tedxjohnscreek@gmail.com</a>
+                <p class="contact-info">Contact <strong>Divya Anand</strong> (Lead Organizer) for any enquiries.</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" title="LinkedIn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon" title="YouTube" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-icon" title="Twitter" aria-label="Twitter">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-tedx">
+            This independent <strong>TEDx</strong> event is operated under license from TED.
+        </div>
+        <p>&copy; 2026 TEDx Johns Creek. All rights reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Trigger on load
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Horizontal scroll pillars - smooth scroll with mouse wheel
+        const pillarsContainer = document.querySelector('.pillars-scroll-container');
+        if (pillarsContainer) {
+            pillarsContainer.addEventListener('wheel', (e) => {
+                if (e.deltaY !== 0) {
+                    e.preventDefault();
+                    pillarsContainer.scrollLeft += e.deltaY;
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
