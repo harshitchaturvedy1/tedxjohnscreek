@@ -714,6 +714,40 @@
             color: #ffffff;
         }
 
+        /* ==================== SCROLL TO TOP BUTTON ==================== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: #eb0028;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(235, 0, 40, 0.4);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #c40022;
+            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(235, 0, 40, 0.6);
+        }
+
         /* ==================== FOOTER ==================== */
         footer {
             background-color: #000000;
@@ -816,6 +850,14 @@
             .pillar-panel {
                 min-width: 90vw;
                 padding: 30px 25px;
+            }
+
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
             }
         }
     </style>
@@ -1029,6 +1071,11 @@
         </div>
     </section>
 
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer-tedx">
@@ -1112,6 +1159,24 @@
                 }
             });
         }
+
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 
 </body>
