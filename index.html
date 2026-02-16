@@ -63,6 +63,12 @@
             align-items: center;
         }
 
+        .nav-logo-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         .nav-logo {
             font-family: 'Montserrat', sans-serif;
             font-size: 24px;
@@ -74,6 +80,14 @@
 
         .nav-logo span {
             color: #eb0028;
+        }
+
+        .nav-theme {
+            font-size: 11px;
+            color: #999999;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-top: 2px;
         }
 
         .nav-menu {
@@ -272,6 +286,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-fill-color: transparent;
         }
 
         .hero-tagline {
@@ -368,14 +383,28 @@
             display: flex;
             overflow-x: auto;
             scroll-snap-type: x mandatory;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
+            scrollbar-width: thin;
+            scrollbar-color: #eb0028 #f0f0f0;
             padding: 0 20px 40px 20px;
             gap: 40px;
         }
 
         .pillars-scroll-container::-webkit-scrollbar {
-            display: none;
+            height: 8px;
+        }
+
+        .pillars-scroll-container::-webkit-scrollbar-track {
+            background: #f0f0f0;
+            border-radius: 10px;
+        }
+
+        .pillars-scroll-container::-webkit-scrollbar-thumb {
+            background: #eb0028;
+            border-radius: 10px;
+        }
+
+        .pillars-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #c40022;
         }
 
         .pillar-panel {
@@ -512,12 +541,6 @@
             margin: 0 auto;
         }
 
-        .tickets-icon {
-            font-size: clamp(80px, 12vw, 120px);
-            margin-bottom: 30px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
         .tickets-subtitle {
             font-size: clamp(32px, 5vw, 48px);
             font-weight: 700;
@@ -617,7 +640,18 @@
             font-size: clamp(16px, 2.5vw, 20px);
             line-height: 1.8;
             color: #cccccc;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
+        }
+
+        .application-deadline {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: #eb0028;
+            font-weight: 600;
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: rgba(235, 0, 40, 0.1);
+            border-radius: 8px;
+            border: 2px solid rgba(235, 0, 40, 0.3);
         }
 
         /* ==================== SPONSORS SECTION ==================== */
@@ -658,12 +692,19 @@
             transition: all 0.4s ease;
             flex-shrink: 0;
             border: 2px solid #e0e0e0;
+            padding: 10px;
         }
 
         .sponsor-logo:hover {
             filter: grayscale(0%);
             border-color: #eb0028;
             transform: scale(1.05);
+        }
+
+        .sponsor-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         /* ==================== CTA SECTION ==================== */
@@ -804,6 +845,23 @@
             color: #eb0028;
         }
 
+        .footer-designer {
+            margin-top: 10px;
+            font-size: clamp(11px, 1.8vw, 13px);
+        }
+
+        .footer-designer a {
+            color: #eb0028;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .footer-designer a:hover {
+            color: #ff1a42;
+            text-decoration: underline;
+        }
+
         /* ==================== SCROLL REVEAL ==================== */
         .reveal {
             opacity: 0;
@@ -904,7 +962,10 @@
     <!-- NAVIGATION BAR -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">TEDx<span> Johns Creek</span></a>
+            <div class="nav-logo-section">
+                <a href="#home" class="nav-logo">TEDx<span> Johns Creek</span></a>
+                <div class="nav-theme">Theme 2026: EVOLVE</div>
+            </div>
             <ul class="nav-menu">
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#pillars" class="nav-link">Pillars</a></li>
@@ -1031,6 +1092,9 @@
                 <p class="application-description">
                     Have a powerful idea worth spreading? Want to be part of the team that brings EVOLVE to life? We're looking for speakers who inspire, challenge, and transform — and organizers who share our vision. Download the application and take the first step toward shaping the future with us.
                 </p>
+                <div class="application-deadline">
+                    Application Deadline: February 25, 2026 (18+ only)
+                </div>
                 <a href="TEDx_Johns_Creek_Speaker_Application.pdf" class="btn btn-primary">Download Application (PDF)</a>
             </div>
         </div>
@@ -1065,6 +1129,23 @@
                     <h3 class="team-name">Sudha Rajasekaran</h3>
                     <p class="team-role">Curation Lead</p>
                 </div>
+
+                <div class="team-card reveal">
+                    <div class="team-image">
+                        <img src="Jo.jpeg" alt="Jo Kethar">
+                    </div>
+                    <h3 class="team-name">Jo Kethar</h3>
+                    <p class="team-role">Lead Coach</p>
+                </div>
+
+                <div class="team-card reveal">
+                    <div class="team-image">
+                        <img src="harshit.jpeg" alt="Harshit Chaturvedi">
+                    </div>
+                    <h3 class="team-name">Harshit Chaturvedi</h3>
+                    <p class="team-role">Youth Leader / Website Developer</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1076,19 +1157,13 @@
         </div>
         <div class="sponsors-carousel">
             <div class="sponsors-track">
-                <div class="sponsor-logo">SPONSOR 1</div>
-                <div class="sponsor-logo">SPONSOR 2</div>
-                <div class="sponsor-logo">SPONSOR 3</div>
-                <div class="sponsor-logo">SPONSOR 4</div>
-                <div class="sponsor-logo">SPONSOR 5</div>
-                <div class="sponsor-logo">SPONSOR 6</div>
+                <div class="sponsor-logo"><img src="ATL_SOC.jpeg" alt="ATL SOC"></div>
+                <div class="sponsor-logo"><img src="life.jpeg" alt="Life"></div>
+                <div class="sponsor-logo"><img src="GG.jpeg" alt="GG"></div>
                 <!-- Duplicate for seamless loop -->
-                <div class="sponsor-logo">SPONSOR 1</div>
-                <div class="sponsor-logo">SPONSOR 2</div>
-                <div class="sponsor-logo">SPONSOR 3</div>
-                <div class="sponsor-logo">SPONSOR 4</div>
-                <div class="sponsor-logo">SPONSOR 5</div>
-                <div class="sponsor-logo">SPONSOR 6</div>
+                <div class="sponsor-logo"><img src="ATL_SOC.jpeg" alt="ATL SOC"></div>
+                <div class="sponsor-logo"><img src="life.jpeg" alt="Life"></div>
+                <div class="sponsor-logo"><img src="GG.jpeg" alt="GG"></div>
             </div>
         </div>
     </section>
@@ -1108,7 +1183,7 @@
             <h2 class="section-title reveal">GET IN TOUCH</h2>
             <div class="contact-content reveal">
                 <p style="font-size: clamp(16px, 2.5vw, 20px); margin-bottom: 30px;">Ready to be part of something transformative?</p>
-                <a href="mailto:tedxjohnscreek@gmail.com" class="contact-email">tedxjohnscreek@gmail.com</a>
+                <a href="mailto:hello@tedxjohnscreek.com" class="contact-email">hello@tedxjohnscreek.com</a>
                 <p class="contact-info">Contact <strong>Divya Anand</strong> (Lead Organizer) at +1(404)-759-9411 for any inquiries.</p>
                 
                 <div class="social-links">
@@ -1134,6 +1209,9 @@
             This independent <strong>TEDx</strong> event is operated under license from TED.
         </div>
         <p>&copy; 2026 TEDx Johns Creek. All rights reserved.</p>
+        <p style="margin-top: 10px; font-size: clamp(11px, 1.8vw, 13px);">
+            Designed by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: #eb0028; text-decoration: none; font-weight: 600; transition: color 0.3s ease;">Harshit Chaturvedy</a>
+        </p>
     </footer>
 
     <!-- JAVASCRIPT -->
@@ -1230,6 +1308,5 @@
             });
         });
     </script>
-
 </body>
 </html>
