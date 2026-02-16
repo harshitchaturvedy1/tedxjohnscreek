@@ -177,15 +177,6 @@
             }
         }
 
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
         .fade-in {
             opacity: 0;
             animation: fadeInUp 0.8s ease-out forwards;
@@ -658,28 +649,23 @@
         .sponsors {
             background-color: #ffffff;
             padding: 100px 20px;
-            overflow: hidden;
         }
 
-        .sponsors-carousel {
-            position: relative;
-            overflow: hidden;
+        .sponsors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: clamp(40px, 8vw, 60px);
             margin-top: 60px;
-        }
-
-        .sponsors-track {
-            display: flex;
-            gap: clamp(40px, 8vw, 80px);
-            animation: scroll 40s linear infinite;
-        }
-
-        .sponsors-carousel:hover .sponsors-track {
-            animation-play-state: paused;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            align-items: center;
+            justify-items: center;
         }
 
         .sponsor-logo {
-            width: clamp(120px, 20vw, 180px);
-            height: clamp(70px, 12vw, 100px);
+            width: clamp(150px, 25vw, 220px);
+            height: clamp(90px, 15vw, 130px);
             background-color: #f5f5f5;
             border-radius: 8px;
             display: flex;
@@ -688,17 +674,15 @@
             font-size: clamp(12px, 2vw, 14px);
             color: #999;
             font-weight: 600;
-            filter: grayscale(100%);
             transition: all 0.4s ease;
-            flex-shrink: 0;
             border: 2px solid #e0e0e0;
-            padding: 10px;
+            padding: 15px;
         }
 
         .sponsor-logo:hover {
-            filter: grayscale(0%);
             border-color: #eb0028;
             transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(235, 0, 40, 0.15);
         }
 
         .sponsor-logo img {
@@ -935,6 +919,10 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+            
+            .sponsors-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1154,16 +1142,11 @@
     <section class="sponsors">
         <div class="container">
             <h2 class="section-title reveal">OUR SPONSORS</h2>
-        </div>
-        <div class="sponsors-carousel">
-            <div class="sponsors-track">
-                <div class="sponsor-logo"><img src="ATL_SOC.jpeg" alt="ATL SOC"></div>
-                <div class="sponsor-logo"><img src="LIFE.jpeg" alt="Life"></div>
-                <div class="sponsor-logo"><img src="GG.jpeg" alt="GG"></div>
-                <!-- Duplicate for seamless loop -->
-                <div class="sponsor-logo"><img src="ATL_SOC.jpeg" alt="ATL SOC"></div>
-                <div class="sponsor-logo"><img src="LIFE.jpeg" alt="Life"></div>
-                <div class="sponsor-logo"><img src="GG.jpeg" alt="GG"></div>
+            <div class="sponsors-grid">
+                <div class="sponsor-logo reveal"><img src="CodeRepo.jpeg" alt="Code Repo"></div>
+                <div class="sponsor-logo reveal"><img src="ATL_SOC.jpeg" alt="Atlanta SOC"></div>
+                <div class="sponsor-logo reveal"><img src="GG.jpeg" alt="GG"></div>
+                <div class="sponsor-logo reveal"><img src="LIFE.jpeg" alt="Life"></div>
             </div>
         </div>
     </section>
