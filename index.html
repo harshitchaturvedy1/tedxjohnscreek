@@ -405,7 +405,7 @@
                     <p class="team-role">Lead Coach</p>
                 </div>
                 <div class="team-card reveal">
-                    <div class="team-image"><img src="harshit.jpeg" alt="Harshit Chaturvedy"></div>
+                    <div class="team-image"><img src="harshit.jpeg" alt="Harshit Chaturvedy" style="object-position: top;"></div>
                     <h3 class="team-name">Harshit Chaturvedy</h3>
                     <p class="team-role">Youth Leader / Website Developer</p>
                 </div>
@@ -456,7 +456,27 @@
         <p style="margin-top: 10px;"><a href="https://www.ted.com/tedx/events/67854" target="_blank" rel="noopener noreferrer" style="color: #eb0028; text-decoration: none; font-weight: 600;">View our official TEDx page on TED.com →</a></p>
         <p>&copy; 2026 TEDx Johns Creek. All rights reserved.</p>
         <p style="margin-top: 10px; font-size: clamp(11px, 1.8vw, 13px);">Designed by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: #eb0028; text-decoration: none; font-weight: 600;">Harshit Chaturvedy</a></p>
+        <p style="margin-top: 15px; font-size: clamp(10px, 1.6vw, 12px); color: #888;">This website is designed and coded with <a href="javascript:void(0)" id="accessibilityLink" style="color: #eb0028; text-decoration: underline;">accessibility</a> in mind.</p>
     </footer>
+
+    <!-- Accessibility Info Card Modal -->
+    <div id="accessibilityModal" class="modal" style="display:none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); align-items: center; justify-content: center;">
+        <div class="modal-content" style="background-color: #1a1a1a; margin: auto; padding: 40px; border: 1px solid #eb0028; width: 90%; max-width: 600px; border-radius: 12px; color: #ffffff; position: relative; box-shadow: 0 0 50px rgba(235,0,40,0.3);">
+            <span class="close-modal" id="closeModal" style="color: #ffffff; position: absolute; top: 15px; right: 25px; font-size: 35px; font-weight: bold; cursor: pointer;">&times;</span>
+            <h2 style="color: #eb0028; margin-bottom: 20px; font-family: 'Montserrat', sans-serif;">Accessibility Features</h2>
+            <div style="line-height: 1.8; font-size: 16px;">
+                <p style="margin-bottom: 15px;">We believe that ideas worth spreading should be accessible to everyone. This website has been built following <strong>WCAG 2.1</strong> guidelines to ensure a high standard of accessibility:</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Semantic HTML:</strong> Proper use of headings and landmarks for screen reader navigation.</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Color Contrast:</strong> High contrast ratios for text and UI elements to aid visibility.</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Keyboard Navigation:</strong> Fully navigable via keyboard with visible focus indicators.</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Responsive Design:</strong> Fluid layouts that adapt to various screen sizes and zoom levels.</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Alt Text:</strong> Meaningful descriptions for all functional and informative imagery.</li>
+                </ul>
+                <p style="margin-top: 20px; font-size: 14px; color: #ccc;">If you encounter any barriers while using this site, please reach out to us at <a href="mailto:tedxjohnscreek@gmail.com" style="color: #eb0028; text-decoration: none; font-weight: 600;">tedxjohnscreek@gmail.com</a>.</p>
+            </div>
+        </div>
+    </div>
 
     <script>
         const navbar = document.querySelector('.navbar');
@@ -491,6 +511,28 @@
         const scrollToTopBtn = document.getElementById('scrollToTop');
         window.addEventListener('scroll', () => { scrollToTopBtn.classList.toggle('visible', window.scrollY > 300); });
         scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+
+        // Accessibility Modal Logic
+        const modal = document.getElementById('accessibilityModal');
+        const btn = document.getElementById('accessibilityLink');
+        const span = document.getElementById('closeModal');
+
+        btn.onclick = function() {
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+        }
+
+        span.onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
     </script>
 </body>
 </html>
