@@ -142,6 +142,44 @@
         .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        .side-youth-header {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #eb0028;
+            color: #ffffff;
+            padding: 20px 10px;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 1001;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 2px 0 15px rgba(0,0,0,0.3);
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .side-youth-header span {
+            font-weight: 900;
+            margin-top: 5px;
+            border-top: 2px solid rgba(255,255,255,0.4);
+            padding-top: 5px;
+        }
+
+        .mobile-only-youth { display: none; }
+
+        @media (max-width: 1024px) {
+            .side-youth-header { display: none; }
+            .mobile-only-youth { display: block; }
+        }
+
         @media (max-width: 768px) {
             .nav-container { padding: 0 20px; }
             .nav-menu { position: fixed; left: -100%; top: 70px; flex-direction: column; background-color: rgba(0,0,0,0.98); width: 100%; text-align: center; transition: left 0.3s ease; gap: 0; padding: 40px 0; border-top: 1px solid rgba(235,0,40,0.2); }
@@ -162,9 +200,58 @@
             .scroll-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; font-size: 18px; }
             .nav-logo-img { height: 30px; }
         }
+
+        /* Spotlight Feature */
+        .spotlight-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2500;
+            cursor: pointer;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+            -webkit-mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent var(--r, 100px), black var(--r, 100px));
+            mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent var(--r, 100px), black var(--r, 100px));
+        }
+        .spotlight-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .spotlight-tooltip {
+            position: fixed;
+            top: var(--y);
+            left: calc(var(--x) + var(--r) + 30px);
+            transform: translateY(-50%);
+            background: #eb0028;
+            color: white;
+            padding: 18px 28px;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: clamp(14px, 2vw, 18px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 2501;
+            transition: opacity 0.4s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+        .spotlight-tooltip::before {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid #eb0028;
+        }
+        @media (max-width: 1024px) {
+            .spotlight-overlay, .spotlight-tooltip { display: none !important; }
+        }
     </style>
 </head>
 <body>
+    <a href="youth.html" class="side-youth-header" id="youthVersionLink">TEDx Johns Creek <span>YOUTH</span></a>
     
     <nav class="navbar">
         <div class="nav-container">
@@ -174,11 +261,12 @@
                 </a>
             </div>
             <ul class="nav-menu">
+                <li class="mobile-only-youth"><a href="youth.html" class="nav-link" style="color: #eb0028; font-weight: 700;">YOUTH VERSION</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#pillars" class="nav-link">Pillars</a></li>
                 <li><a href="#speakers" class="nav-link">Speakers</a></li>
                 <li><a href="#team" class="nav-link">Team</a></li>
-                <li><a href="#tickets" class="nav-link">Tickets</a></li>
+                <li><a href="#tickets" class="nav-link">Archive</a></li>
                 <li><a href="#apply" class="nav-link">Apply</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -190,12 +278,13 @@
 
     <section class="hero" id="home">
         <div class="hero-content">
+            <div class="next-event-badge fade-in" style="display: inline-block; background-color: rgba(235,0,40,0.15); border: 1px solid #eb0028; color: #eb0028; padding: 8px 20px; border-radius: 50px; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px;">NEXT EVENT: YOUTH VERSION &bull; SEPT 19</div>
             <div class="hero-subtitle fade-in">Saturday April 25 2026</div>
             <h1 class="hero-title fade-in delay-1">EVOLVE</h1>
             <p class="hero-tagline fade-in delay-2">Growth in motion. The courage to change. The vision to become more than we were yesterday.</p>
             <p class="hero-description fade-in delay-3">At TEDx Johns Creek, EVOLVE is a call to thinkers, creators, and changemakers who are not just adapting to the future — they are actively shaping it.</p>
             <div class="hero-buttons fade-in delay-3">
-                <a href="https://www.eventbrite.com/e/tedx-johns-creek-2026-tickets-1983551715577?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Tickets</a>
+                <a href="https://nripulse.com/tedx-johns-creek-2026-celebrates-ideas-identity-and-evolution/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">NRI Pulse Coverage</a>
                 <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
         </div>
@@ -355,12 +444,12 @@
 
     <section id="tickets" class="tickets">
         <div class="container">
-            <h2 class="section-title reveal">GET YOUR TICKETS</h2>
+            <h2 class="section-title reveal">EVENT COVERAGE</h2>
             <div class="tickets-content reveal">
-                <h3 class="tickets-subtitle">Tickets Now Available!</h3>
-                <p class="tickets-description">Secure your spot at TEDx Johns Creek 2026: EVOLVE. Join us for a day of powerful ideas, inspiring stories, and transformative conversations.</p>
-                <p class="tickets-info">Saturday, April 25, from  10:30 am to 4 pm at PHASE Events</p>
-                <a href="https://www.eventbrite.com/e/tedx-johns-creek-2026-tickets-1983551715577?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Tickets on Eventbrite</a>
+                <h3 class="tickets-subtitle">NRI Pulse Highlights</h3>
+                <p class="tickets-description">TEDx Johns Creek 2026: EVOLVE was featured by NRI Pulse. Read about the ideas, identity, and evolution that shaped our event.</p>
+                <p class="tickets-info">"TEDx Johns Creek 2026 celebrates ideas, identity, and evolution"</p>
+                <a href="https://nripulse.com/tedx-johns-creek-2026-celebrates-ideas-identity-and-evolution/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Read NRI Pulse Coverage</a>
             </div>
         </div>
     </section>
@@ -429,8 +518,8 @@
     <section class="cta-section">
         <div class="container">
             <h2 class="cta-title reveal">EVOLVE<br>TEDx Johns Creek 2026</h2>
-            <p class="cta-description reveal">EVOLVE is about growth in motion — the courage to change, the wisdom to adapt, and the vision to become more than we were yesterday.</p>
-            <a href="https://www.eventbrite.com/e/tedx-johns-creek-2026-tickets-1983551715577?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" class="btn btn-primary reveal">GET TICKETS</a>
+            <p class="cta-description reveal">EVOLVE was about growth in motion — the courage to change, the wisdom to adapt, and the vision to become more than we were yesterday.</p>
+            <a href="https://nripulse.com/tedx-johns-creek-2026-celebrates-ideas-identity-and-evolution/" target="_blank" rel="noopener noreferrer" class="btn btn-primary reveal">Read NRI Pulse Coverage</a>
         </div>
     </section>
 
@@ -476,6 +565,10 @@
                 <p style="margin-top: 20px; font-size: 14px; color: #ccc;">If you encounter any barriers while using this site, please reach out to us at <a href="mailto:tedxjohnscreek@gmail.com" style="color: #eb0028; text-decoration: none; font-weight: 600;">tedxjohnscreek@gmail.com</a>.</p>
             </div>
         </div>
+    </div>
+
+    <div id="spotlightOverlay" class="spotlight-overlay hidden">
+        <div id="spotlightTooltip" class="spotlight-tooltip">Looking for our Youth Version? Click here!</div>
     </div>
 
     <script>
@@ -533,6 +626,41 @@
                 document.body.style.overflow = "auto";
             }
         }
+
+        // Spotlight Feature Logic
+        const spotlightOverlay = document.getElementById('spotlightOverlay');
+        const youthLink = document.getElementById('youthVersionLink');
+
+        function initSpotlight() {
+            // Check if it's the first visit
+            if (!localStorage.getItem('hasVisitedBefore')) {
+                // Wait for a second to let the page settle
+                setTimeout(() => {
+                    const rect = youthLink.getBoundingClientRect();
+                    // Only show if the link is visible (not on mobile)
+                    if (rect.width > 0 && rect.height > 0) {
+                        const x = rect.left + rect.width / 2;
+                        const y = rect.top + rect.height / 2;
+                        const r = Math.max(rect.width, rect.height) / 2 + 25;
+
+                        spotlightOverlay.style.setProperty('--x', `${x}px`);
+                        spotlightOverlay.style.setProperty('--y', `${y}px`);
+                        spotlightOverlay.style.setProperty('--r', `${r}px`);
+
+                        spotlightOverlay.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden'; // Lock scrolling
+                        localStorage.setItem('hasVisitedBefore', 'true');
+                    }
+                }, 800);
+            }
+        }
+
+        spotlightOverlay.addEventListener('click', () => {
+            spotlightOverlay.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Unlock scrolling
+        });
+
+        initSpotlight();
     </script>
 </body>
 </html>
