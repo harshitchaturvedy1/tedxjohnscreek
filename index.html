@@ -54,6 +54,24 @@
         }
 
         /* --- Navigation --- */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 2001;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--ted-red);
+            width: 0%;
+            box-shadow: 0 0 15px rgba(235, 0, 40, 0.7);
+            transition: width 0.1s ease-out;
+        }
+
         .navbar {
             position: fixed;
             top: 0;
@@ -247,6 +265,45 @@
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+
+        .mission-title.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .spark-highlight {
+            color: var(--ted-red);
+            position: relative;
+            display: inline-block;
+            transition: text-shadow 1.5s ease;
+        }
+
+        .mission-title.reveal .spark-highlight {
+            text-shadow: 0 0 20px rgba(235, 0, 40, 0.6), 0 0 40px rgba(235, 0, 40, 0.3);
+        }
+
+        .spark-highlight::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: var(--ted-red);
+            filter: blur(30px);
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            transition: opacity 2s ease, transform 2s ease;
+            z-index: -1;
+        }
+
+        .mission-title.reveal .spark-highlight::after {
+            opacity: 0.2;
+            transform: translate(-50%, -50%) scale(1.8);
         }
 
         .mission-text {
@@ -350,6 +407,7 @@
         .team {
             padding: 150px 0;
             background: var(--black);
+            text-align: center;
         }
 
         .team-grid {
@@ -411,50 +469,126 @@
         /* --- Footer --- */
         footer { 
             background-color: var(--black); 
-            color: #666666; 
-            text-align: center; 
-            padding: 40px 20px; 
-            font-size: clamp(12px, 2vw, 14px); 
-            border-top: 1px solid #222222; 
+            color: #888888; 
+            padding: 80px 0 40px; 
+            border-top: 1px solid #1a1a1a; 
+            font-size: 14px;
         }
 
-        .footer-tedx { 
-            color: #999999; 
-            margin-bottom: 10px; 
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-bottom: 60px;
         }
 
-        .footer-tedx strong { 
-            color: var(--ted-red); 
+        .footer-brand .logo img {
+            height: 35px;
+            margin-bottom: 20px;
+        }
+
+        .footer-title {
+            color: var(--white);
+            font-weight: 700;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .footer-tedx-info {
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .footer-tedx-info strong {
+            color: var(--ted-red);
+        }
+
+        .footer-link {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        .footer-link:hover {
+            color: var(--ted-red);
         }
 
         .social-links { 
             display: flex; 
-            justify-content: center; 
-            gap: 25px; 
-            margin-top: 30px; 
-            flex-wrap: wrap; 
+            gap: 15px; 
+            margin-top: 5px;
         }
 
         .social-icon { 
-            width: 50px; 
-            height: 50px; 
-            border: 2px solid #ffffff; 
+            width: 40px; 
+            height: 40px; 
+            border: 1px solid #333; 
             border-radius: 50%; 
             display: flex; 
             align-items: center; 
             justify-content: center; 
             transition: var(--transition); 
-            cursor: pointer; 
-            color: #ffffff; 
+            color: var(--white); 
             text-decoration: none; 
-            font-size: 20px; 
+            font-size: 16px; 
         }
 
         .social-icon:hover { 
             background-color: var(--ted-red); 
             border-color: var(--ted-red); 
+            transform: translateY(-3px); 
+        }
+
+        .scroll-to-top { 
+            position: fixed; 
+            bottom: 30px; 
+            right: 30px; 
+            width: 50px; 
+            height: 50px; 
+            background-color: var(--ted-red); 
+            color: var(--white); 
+            border: none; 
+            border-radius: 50%; 
+            font-size: 20px; 
+            cursor: pointer; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            box-shadow: 0 4px 20px rgba(235,0,40,0.4); 
+            transition: var(--transition); 
+            opacity: 0; 
+            visibility: hidden; 
+            z-index: 999; 
+        }
+
+        .scroll-to-top.visible { 
+            opacity: 1; 
+            visibility: visible; 
+        }
+
+        .scroll-to-top:hover { 
+            background-color: #c40022; 
             transform: translateY(-5px); 
-            color: #ffffff; 
+            box-shadow: 0 6px 25px rgba(235,0,40,0.6);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid #1a1a1a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 12px;
+        }
+
+        .footer-bottom p {
+            margin: 0;
         }
 
         /* --- Accessibility Modal --- */
@@ -592,6 +726,9 @@
     </style>
 </head>
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
 
     <nav class="navbar">
         <div class="container nav-content">
@@ -603,6 +740,7 @@
                 <li><a href="#theme">The Theme</a></li>
                 <li><a href="#apply">Apply</a></li>
                 <li><a href="#team">Team</a></li>
+                <li><a href="#partnership">Partner</a></li>
                 <li><a href="#venue">Venue</a></li>
                 <li><a href="main.html">Past Events</a></li>
             </ul>
@@ -640,6 +778,10 @@
         </button>
     </header>
 
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <section id="about" class="mission" style="padding-bottom: 0;">
         <div class="container">
             <span class="section-tag">ABOUT THE EVENT</span>
@@ -653,7 +795,7 @@
     <section id="theme" class="mission">
         <div class="container">
             <span class="section-tag">THE 2026 THEME</span>
-            <h2 class="mission-title">"One Spark Can Ignite a Movement."</h2>
+            <h2 class="mission-title">"One <span class="spark-highlight">Spark</span> Can Ignite a Movement."</h2>
             <p class="mission-text">
                 The Spark is the beginning of everything. It's that fleeting moment of inspiration, the sudden realization, or the burning passion that refuses to be ignored. This year, we explore how individual "sparks" in Johns Creek are evolving into collective movements. From technology and art to social reform and science, we celebrate the ideas that are lighting the way toward the next evolution of our society.
             </p>
@@ -739,6 +881,22 @@
         </div>
     </section>
 
+    <section id="partnership" class="mission" style="background: linear-gradient(180deg, #0a0a0a 0%, var(--black) 100%);">
+        <div class="container">
+            <span class="section-tag">PARTNER WITH US</span>
+            <h2 class="mission-title" style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900;">Fuel the Next Evolution</h2>
+            <p class="mission-text" style="margin-bottom: 50px;">
+                Our movement is powered by visionaries who believe in the potential of youth. Partnering with TEDxJohnsCreekYouth is a unique opportunity to support local innovation, empower the next generation, and align your brand with ideas worth spreading. Join us in making a global impact from Johns Creek.
+            </p>
+            <div style="display: flex; justify-content: center;">
+                <a href="mailto:tedxjohnscreek@gmail.com?subject=Sponsorship%20Inquiry" class="cta-button" style="display: flex; align-items: center; gap: 12px;">
+                    <i class="fas fa-handshake" style="font-size: 18px;"></i>
+                    BECOME A PARTNER
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section id="venue" class="mission" style="padding-top: 50px;">
         <div class="container">
             <span class="section-tag">THE VENUE</span>
@@ -746,7 +904,7 @@
             <p style="color: var(--ted-red); font-weight: 700; letter-spacing: 1px; margin-bottom: 40px;">12150 Morris Rd, Alpharetta, GA 30005</p>
             <div style="border-radius: 12px; overflow: hidden; border: 1px solid #222; line-height: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.747514120306!2d-84.301323623547!3d34.02465131885694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5a1e27a177259%3A0xc3995817c180993!2sPhase%20Events!5e0!3m2!1sen!2sus!4v1715250000000!5m2!1sen!2sus" 
+                    src="https://www.google.com/maps?q=12150+Morris+Rd,+Alpharetta,+GA+30005&output=embed" 
                     width="100%" 
                     height="450" 
                     style="border:0;" 
@@ -759,15 +917,46 @@
     </section>
 
     <footer>
-        <div class="footer-tedx">This independent <strong>TEDx</strong> event is operated under license from TED.</div>
-        <p style="margin-top: 10px;"><a href="https://www.ted.com/tedx/events/67854" target="_blank" rel="noopener noreferrer" style="color: var(--ted-red); text-decoration: none; font-weight: 600;">View our official TEDx page on TED.com →</a></p>
-        <p>&copy; 2026 TEDx Johns Creek. All rights reserved.</p>
-        <p style="margin-top: 10px; font-size: clamp(11px, 1.8vw, 13px);">Designed by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: var(--ted-red); text-decoration: none; font-weight: 600;">Harshit Chaturvedy</a></p>
-        <p style="margin-top: 15px; font-size: clamp(10px, 1.6vw, 12px); color: #888;">This website is designed and coded with <a href="javascript:void(0)" id="accessibilityLink" style="color: var(--ted-red); text-decoration: underline;">accessibility</a> in mind.</p>
-        
-        <div class="social-links">
-            <a href="https://www.instagram.com/tedxjohnscreek" class="social-icon" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/tedxjohns-creek/" class="social-icon" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="TEDxJohnsCreekYouthLogo.jpeg" alt="TEDxJohnsCreekYouth">
+                    </a>
+                    <div class="footer-tedx-info">
+                        This independent <strong>TEDx</strong> event is operated under license from TED.
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/tedxjohnscreek" class="social-icon" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/tedxjohns-creek/" class="social-icon" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div>
+                    <span class="footer-title">EXPLORE</span>
+                    <a href="#about" class="footer-link">About the Event</a>
+                    <a href="#theme" class="footer-link">The 2026 Theme</a>
+                    <a href="#partnership" class="footer-link">Partner With Us</a>
+                    <a href="#apply" class="footer-link">Join the Movement</a>
+                    <a href="main.html" class="footer-link">Past Event Archive</a>
+                </div>
+
+                <!-- Connect Column -->
+                <div>
+                    <span class="footer-title">CONNECT</span>
+                    <a href="https://www.ted.com/tedx/events/67735" target="_blank" rel="noopener noreferrer" class="footer-link">Official TEDx Page</a>
+                    <a href="mailto:tedxjohnscreek@gmail.com" class="footer-link">General Inquiries</a>
+                    <a href="#venue" class="footer-link">Venue Information</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 TEDx Johns Creek. All rights reserved.</p>
+                <p>Designed by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: var(--white); text-decoration: none; font-weight: 600;">Harshit Chaturvedy</a></p>
+                <p>Designed with <a href="javascript:void(0)" id="accessibilityLink" style="color: var(--white); text-decoration: underline;">accessibility</a> in mind.</p>
+            </div>
         </div>
     </footer>
 
@@ -895,6 +1084,30 @@
             muteBtn.style.visibility = 'visible';
         });
 
+        // Scroll to Top Logic
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll Progress Bar Logic
+        const progressBar = document.getElementById('progressBar');
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            if (progressBar) {
+                progressBar.style.width = scrolled + "%";
+            }
+        });
+
         // Intersection Observer for Video Pause/Play
         const heroSection = document.querySelector('.hero');
         const observerOptions = {
@@ -913,6 +1126,21 @@
         }, observerOptions);
 
         observer.observe(heroSection);
+
+        // Reveal Animations Logic
+        const revealOptions = {
+            threshold: 0.3
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.mission-title').forEach(el => revealObserver.observe(el));
 
         // Accessibility Modal Logic
         const modal = document.getElementById('accessibilityModal');
