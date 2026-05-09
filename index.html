@@ -2,622 +2,935 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-site-verification" content="eH06OsOj8fmAoW9V7E7xV6J4WZptRqRucOqdGEy9RkY" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEDx Johns Creek 2026 | EVOLVE</title>
+    <title>TEDxJohnsCreekYouth | THE NEXT EVOLUTION</title>
     <link rel="icon" type="image/jpeg" href="tedxfavicon.jpeg">
+    
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', sans-serif; color: #1a1a1a; line-height: 1.6; overflow-x: hidden; background-color: #ffffff; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; line-height: 1.2; }
+        :root {
+            --charcoal: #121212;
+            --black: #000000;
+            --ted-red: #EB0028;
+            --white: #FFFFFF;
+            --gray: #888888;
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
 
-        .navbar { position: fixed; top: 0; left: 0; right: 0; background-color: rgba(0,0,0,0.95); backdrop-filter: blur(10px); z-index: 1000; padding: 20px 0; transition: all 0.3s ease; border-bottom: 1px solid rgba(235,0,40,0.2); }
-        .navbar.scrolled { padding: 15px 0; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
-        .nav-container { max-width: 1400px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo-section { display: flex; align-items: center; }
-        .nav-logo-section a { display: flex; align-items: center; }
-        .nav-logo-img { height: 48px; width: auto; display: block; }
-        .nav-menu { display: flex; list-style: none; gap: 40px; align-items: center; }
-        .nav-link { color: #ffffff; text-decoration: none; font-size: 15px; font-weight: 500; letter-spacing: 0.5px; transition: color 0.3s ease; position: relative; }
-        .nav-link::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background-color: #eb0028; transition: width 0.3s ease; }
-        .nav-link:hover { color: #eb0028; }
-        .nav-link:hover::after { width: 100%; }
-        .nav-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-        .nav-toggle span { width: 25px; height: 3px; background-color: #ffffff; transition: all 0.3s ease; border-radius: 2px; }
-        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(8px, 8px); }
-        .nav-toggle.active span:nth-child(2) { opacity: 0; }
-        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .fade-in { opacity: 0; animation: fadeInUp 0.8s ease-out forwards; }
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        .btn { display: inline-block; padding: 18px 48px; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 600; text-decoration: none; border-radius: 4px; transition: all 0.3s ease; cursor: pointer; border: none; letter-spacing: 0.5px; text-transform: uppercase; }
-        .btn-primary { background-color: #eb0028; color: #ffffff; box-shadow: 0 4px 20px rgba(235,0,40,0.3); }
-        .btn-primary:hover { background-color: #c40022; transform: translateY(-2px); box-shadow: 0 6px 30px rgba(235,0,40,0.4); }
-        .btn-secondary { background-color: transparent; color: #ffffff; border: 2px solid #ffffff; }
-        .btn-secondary:hover { background-color: #ffffff; color: #000000; transform: translateY(-2px); }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        .hero { position: relative; min-height: 100vh; background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%); background-size: 200% 200%; animation: gradientShift 15s ease infinite; display: flex; align-items: center; justify-content: center; text-align: center; padding: 120px 20px 60px; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 30% 50%, rgba(235,0,40,0.1) 0%, transparent 50%); pointer-events: none; }
-        .hero-content { position: relative; z-index: 2; max-width: 1200px; color: #ffffff; }
-        .hero-subtitle { font-size: 14px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #eb0028; margin-bottom: 20px; }
-        .hero-title { font-size: clamp(60px, 15vw, 180px); font-weight: 900; letter-spacing: -2px; margin-bottom: 30px; background: linear-gradient(135deg, #ffffff 0%, #eb0028 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-        .hero-tagline { font-size: clamp(18px, 3vw, 32px); font-weight: 300; margin-bottom: 25px; line-height: 1.4; max-width: 900px; margin-left: auto; margin-right: auto; }
-        .hero-description { font-size: clamp(15px, 2vw, 20px); max-width: 800px; margin: 0 auto 50px; line-height: 1.8; color: #cccccc; }
-        .hero-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-
-        section { padding: 120px 20px; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        .section-title { font-size: clamp(32px, 5vw, 56px); font-weight: 700; margin-bottom: 60px; text-align: center; position: relative; letter-spacing: -1px; }
-        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background-color: #eb0028; margin: 30px auto 0; }
-
-        .about-theme { background-color: #ffffff; }
-        .about-content { max-width: 900px; margin: 0 auto; font-size: clamp(16px, 2.5vw, 20px); line-height: 1.9; text-align: center; color: #333333; }
-
-        .pillars { background: linear-gradient(180deg, #f8f8f8 0%, #ffffff 100%); padding: 120px 0; overflow: hidden; }
-        .pillars-title { text-align: center; font-size: clamp(32px, 5vw, 56px); font-weight: 700; margin-bottom: 20px; padding: 0 20px; }
-        .pillars-subtitle { text-align: center; font-size: clamp(14px, 2vw, 18px); color: #666; margin-bottom: 80px; padding: 0 20px; }
-        .pillars-scroll-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #eb0028 #f0f0f0; padding: 0 20px 40px 20px; gap: 40px; }
-        .pillars-scroll-container::-webkit-scrollbar { height: 8px; }
-        .pillars-scroll-container::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 10px; }
-        .pillars-scroll-container::-webkit-scrollbar-thumb { background: #eb0028; border-radius: 10px; }
-        .pillar-panel { min-width: min(450px, 85vw); scroll-snap-align: center; background: #ffffff; border-radius: 12px; padding: 60px 50px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); position: relative; transition: all 0.4s ease; border-left: 6px solid #eb0028; }
-        .pillar-panel:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(235,0,40,0.15); }
-        .pillar-number { font-size: clamp(60px, 10vw, 80px); font-weight: 900; color: rgba(235,0,40,0.1); position: absolute; top: 20px; right: 30px; line-height: 1; }
-        .pillar-icon { font-size: clamp(36px, 6vw, 48px); margin-bottom: 30px; display: block; }
-        .pillar-panel-title { font-size: clamp(24px, 4vw, 32px); font-weight: 700; margin-bottom: 25px; color: #000000; position: relative; z-index: 2; }
-        .pillar-panel-description { font-size: clamp(15px, 2vw, 17px); line-height: 1.8; color: #555555; position: relative; z-index: 2; }
-        .scroll-indicator { text-align: center; margin-top: 40px; color: #999; font-size: clamp(12px, 2vw, 14px); letter-spacing: 2px; text-transform: uppercase; }
-
-        /* SPEAKERS */
-        .speakers { background-color: #000000; color: #ffffff; }
-        .speakers .section-title { color: #ffffff; }
-        .speakers .section-title::after { background-color: #eb0028; }
-        .speakers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-top: 60px; }
-        .speaker-card { text-align: center; transition: all 0.4s ease; cursor: pointer; }
-        .speaker-card:hover { transform: translateY(-8px); }
-        .speaker-poster { width: 100%; border-radius: 8px; overflow: hidden; border: 3px solid rgba(235,0,40,0.4); transition: all 0.4s ease; aspect-ratio: 1/1; }
-        .speaker-poster img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .speaker-card:hover .speaker-poster { border-color: #eb0028; box-shadow: 0 0 30px rgba(235,0,40,0.4); }
-        .speaker-name { font-size: clamp(18px, 2.5vw, 21px); font-weight: 700; margin-top: 16px; margin-bottom: 6px; color: #ffffff; }
-        .speaker-teaser { font-size: clamp(13px, 1.8vw, 14px); color: #999999; font-style: italic; }
-
-        .tickets { background-color: #ffffff; text-align: center; }
-        .tickets-content { max-width: 800px; margin: 0 auto; }
-        .tickets-subtitle { font-size: clamp(32px, 5vw, 48px); font-weight: 700; color: #eb0028; margin-bottom: 30px; }
-        .tickets-description { font-size: clamp(16px, 2.5vw, 20px); line-height: 1.8; color: #333333; margin-bottom: 30px; }
-        .tickets-info { font-size: clamp(15px, 2vw, 18px); color: #666666; font-style: italic; margin-bottom: 40px; }
-
-        .team { background-color: #f8f8f8; }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 50px; margin-top: 60px; }
-        .team-card { text-align: center; transition: all 0.4s ease; }
-        .team-card:hover { transform: translateY(-10px); }
-        .team-image { width: clamp(140px, 22vw, 180px); height: clamp(140px, 22vw, 180px); border-radius: 50%; background: linear-gradient(135deg, #e0e0e0, #cccccc); margin: 0 auto 20px; border: 3px solid #eb0028; display: flex; align-items: center; justify-content: center; font-size: clamp(50px, 8vw, 60px); color: #999; transition: all 0.4s ease; overflow: hidden; }
-        .team-image img { width: 100%; height: 100%; object-fit: cover; }
-        .team-card:hover .team-image { border-color: #c40022; box-shadow: 0 10px 30px rgba(235,0,40,0.2); }
-        .team-name { font-size: clamp(18px, 2.5vw, 22px); font-weight: 700; margin-bottom: 8px; color: #000000; }
-        .team-role { font-size: clamp(13px, 2vw, 15px); color: #eb0028; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-
-        .application { background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%); color: #ffffff; text-align: center; }
-        .application-content { max-width: 800px; margin: 0 auto; }
-        .application-description { font-size: clamp(16px, 2.5vw, 20px); line-height: 1.8; color: #cccccc; margin-bottom: 30px; }
-        .application-deadline { font-size: clamp(16px, 2.5vw, 20px); color: #eb0028; font-weight: 600; margin-bottom: 40px; padding: 20px; background-color: rgba(235,0,40,0.1); border-radius: 8px; border: 2px solid rgba(235,0,40,0.3); }
-
-        .sponsors { background-color: #ffffff; padding: 100px 20px; }
-        .sponsors-grid { display: flex; flex-wrap: nowrap; gap: clamp(16px, 3vw, 40px); margin-top: 60px; max-width: 1200px; margin-left: auto; margin-right: auto; align-items: center; justify-content: center; }
-        .sponsor-logo { flex: 0 0 auto; width: clamp(120px, 16vw, 200px); height: clamp(70px, 10vw, 120px); background-color: #f5f5f5; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: clamp(12px, 2vw, 14px); color: #999; font-weight: 600; transition: all 0.4s ease; border: 2px solid #e0e0e0; padding: 15px; }
-        .sponsor-logo:hover { border-color: #eb0028; transform: scale(1.05); box-shadow: 0 10px 30px rgba(235,0,40,0.15); }
-        .sponsor-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
-
-        .cta-section { background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%); color: #ffffff; text-align: center; }
-        .cta-title { font-size: clamp(40px, 8vw, 96px); font-weight: 900; margin-bottom: 40px; letter-spacing: -2px; }
-        .cta-description { font-size: clamp(16px, 2.5vw, 24px); max-width: 800px; margin: 0 auto 60px; line-height: 1.8; color: #cccccc; }
-
-        .contact { background-color: #000000; color: #ffffff; text-align: center; }
-        .contact-content { max-width: 700px; margin: 0 auto; }
-        .contact-email { font-size: clamp(18px, 3vw, 24px); color: #eb0028; text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 20px; transition: color 0.3s ease; word-break: break-word; }
-        .contact-email:hover { color: #ff1a42; }
-        .contact-info { font-size: clamp(15px, 2.5vw, 18px); margin-top: 30px; color: #cccccc; }
-        .social-links { display: flex; justify-content: center; gap: 25px; margin-top: 50px; flex-wrap: wrap; }
-        .social-icon { width: 50px; height: 50px; border: 2px solid #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; color: #ffffff; text-decoration: none; font-size: 20px; }
-        .social-icon:hover { background-color: #eb0028; border-color: #eb0028; transform: translateY(-5px); color: #ffffff; }
-
-        .scroll-to-top { position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background-color: #eb0028; color: #ffffff; border: none; border-radius: 50%; font-size: 20px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(235,0,40,0.4); transition: all 0.3s ease; opacity: 0; visibility: hidden; z-index: 999; }
-        .scroll-to-top.visible { opacity: 1; visibility: visible; }
-        .scroll-to-top:hover { background-color: #c40022; transform: translateY(-5px); }
-
-        footer { background-color: #000000; color: #666666; text-align: center; padding: 40px 20px; font-size: clamp(12px, 2vw, 14px); border-top: 1px solid #222222; }
-        .footer-tedx { color: #999999; margin-bottom: 10px; }
-        .footer-tedx strong { color: #eb0028; }
-
-        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        .side-youth-header {
-            position: fixed;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: #eb0028;
-            color: #ffffff;
-            padding: 20px 10px;
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
+        h1, h2, h3, h4 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 2px;
             text-transform: uppercase;
-            z-index: 1001;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 2px 0 15px rgba(0,0,0,0.3);
-            pointer-events: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Navigation --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 42px;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--ted-red);
+        }
+
+        .nav-toggle {
+            display: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-        }
-        .side-youth-header span {
-            font-weight: 900;
-            margin-top: 5px;
-            border-top: 2px solid rgba(255,255,255,0.4);
-            padding-top: 5px;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            background-color: var(--black);
         }
 
-        .mobile-only-youth { display: none; }
-
-        @media (max-width: 1024px) {
-            .side-youth-header { display: none; }
-            .mobile-only-youth { display: block; }
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
         }
 
-        @media (max-width: 768px) {
-            .nav-container { padding: 0 20px; }
-            .nav-menu { position: fixed; left: -100%; top: 70px; flex-direction: column; background-color: rgba(0,0,0,0.98); width: 100%; text-align: center; transition: left 0.3s ease; gap: 0; padding: 40px 0; border-top: 1px solid rgba(235,0,40,0.2); }
-            .nav-menu.active { left: 0; }
-            .nav-menu li { padding: 20px 0; }
-            .nav-toggle { display: flex; }
-            section { padding: 80px 20px; }
-            .hero { padding: 100px 20px 60px; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .btn { padding: 16px 40px; width: 100%; max-width: 300px; font-size: 14px; }
-            .speakers-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-            .team-grid { grid-template-columns: 1fr; gap: 40px; }
-            .sponsors-grid { flex-wrap: wrap; }
-            .nav-logo-img { height: 36px; }
-        }
-        @media (max-width: 480px) {
-            .speakers-grid { grid-template-columns: 1fr; }
-            .scroll-to-top { bottom: 20px; right: 20px; width: 45px; height: 45px; font-size: 18px; }
-            .nav-logo-img { height: 30px; }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+            z-index: 1;
         }
 
-        /* Spotlight Feature */
-        .spotlight-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2500;
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .mute-btn, .info-btn {
+            position: absolute;
+            bottom: 30px;
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            transition: opacity 0.6s ease, visibility 0.6s ease;
-            -webkit-mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent var(--r, 100px), black var(--r, 100px));
-            mask-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%), transparent var(--r, 100px), black var(--r, 100px));
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
         }
-        .spotlight-overlay.hidden {
+
+        .mute-btn { right: 30px; }
+        .info-btn { 
+            left: 30px; 
             opacity: 0;
             visibility: hidden;
         }
-        .spotlight-tooltip {
-            position: fixed;
-            top: var(--y);
-            left: calc(var(--x) + var(--r) + 30px);
-            transform: translateY(-50%);
-            background: #eb0028;
-            color: white;
-            padding: 18px 28px;
-            border-radius: 12px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: clamp(14px, 2vw, 18px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-            white-space: nowrap;
-            pointer-events: none;
-            z-index: 2501;
-            transition: opacity 0.4s ease;
-            border: 2px solid rgba(255,255,255,0.2);
+
+        .mute-btn:hover, .info-btn:hover {
+            background: var(--ted-red);
+            border-color: var(--ted-red);
+            transform: scale(1.1);
         }
-        .spotlight-tooltip::before {
+
+        .info-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .hero-title {
+            font-size: clamp(50px, 12vw, 160px);
+            font-weight: 900;
+            letter-spacing: -4px;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            color: var(--white);
+            text-shadow: 0 0 30px rgba(235, 0, 40, 0.5);
+            animation: heroFade 1.2s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(14px, 2.5vw, 20px);
+            letter-spacing: 8px;
+            color: var(--ted-red);
+            margin-bottom: 50px;
+            font-weight: 700;
+            animation: heroFade 1.8s ease-out;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: var(--ted-red);
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 14px;
+            letter-spacing: 2px;
+            border-radius: 2px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(235, 0, 40, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(235, 0, 40, 0.6);
+            background-color: #ff1a43;
+        }
+
+        /* --- Mission Section (The Spark) --- */
+        .mission {
+            padding: 180px 0;
+            background-color: var(--black);
+            text-align: center;
+        }
+
+        .section-tag {
+            color: var(--ted-red);
+            font-weight: 700;
+            letter-spacing: 5px;
+            font-size: 12px;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .mission-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 400;
+            margin-bottom: 50px;
+            text-transform: none;
+            font-style: italic;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mission-text {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 19px;
+            color: #ccc;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        /* --- Application Section --- */
+        .apply {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--black) 0%, #0a0a0a 100%);
+        }
+
+        .apply-card {
+            background: var(--charcoal);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 80px 40px;
+            border-radius: 4px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+        }
+
+        .apply-card::before {
             content: '';
             position: absolute;
-            left: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            border-right: 15px solid #eb0028;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--ted-red);
         }
-        @media (max-width: 1024px) {
-            .spotlight-overlay, .spotlight-tooltip { display: none !important; }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 18px;
+            background: var(--ted-red);
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        .apply-title {
+            font-size: 38px;
+            font-weight: 900;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        .opt-in {
+            display: flex;
+            max-width: 550px;
+            margin: 0 auto;
+            gap: 12px;
+        }
+
+        .opt-in input {
+            flex: 1;
+            padding: 18px 25px;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            color: var(--white);
+            border-radius: 2px;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+
+        .opt-in input:focus {
+            border-color: var(--ted-red);
+        }
+
+        .opt-in button {
+            padding: 18px 35px;
+            background: var(--ted-red);
+            color: var(--white);
+            border: none;
+            border-radius: 2px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 13px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .opt-in button:hover {
+            background: #ff1a43;
+            transform: scale(1.02);
+        }
+
+        /* --- Team Section --- */
+        .team {
+            padding: 150px 0;
+            background: var(--black);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 50px;
+            margin-top: 80px;
+        }
+
+        .team-member {
+            background: transparent;
+            padding: 0;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .member-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background: #1a1a1a;
+            overflow: hidden;
+            border: 3px solid var(--ted-red);
+            box-shadow: 0 0 20px rgba(235, 0, 40, 0.2);
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-img {
+            box-shadow: 0 0 35px rgba(235, 0, 40, 0.4);
+        }
+
+        .member-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 22px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .member-role {
+            color: var(--ted-red);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* --- Footer --- */
+        footer { 
+            background-color: var(--black); 
+            color: #666666; 
+            text-align: center; 
+            padding: 40px 20px; 
+            font-size: clamp(12px, 2vw, 14px); 
+            border-top: 1px solid #222222; 
+        }
+
+        .footer-tedx { 
+            color: #999999; 
+            margin-bottom: 10px; 
+        }
+
+        .footer-tedx strong { 
+            color: var(--ted-red); 
+        }
+
+        .social-links { 
+            display: flex; 
+            justify-content: center; 
+            gap: 25px; 
+            margin-top: 30px; 
+            flex-wrap: wrap; 
+        }
+
+        .social-icon { 
+            width: 50px; 
+            height: 50px; 
+            border: 2px solid #ffffff; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: var(--transition); 
+            cursor: pointer; 
+            color: #ffffff; 
+            text-decoration: none; 
+            font-size: 20px; 
+        }
+
+        .social-icon:hover { 
+            background-color: var(--ted-red); 
+            border-color: var(--ted-red); 
+            transform: translateY(-5px); 
+            color: #ffffff; 
+        }
+
+        /* --- Accessibility Modal --- */
+        .modal-content {
+            background-color: #1a1a1a;
+            margin: auto;
+            padding: 40px;
+            border: 1px solid var(--ted-red);
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            color: #ffffff;
+            position: relative;
+            box-shadow: 0 0 50px rgba(235, 0, 40, 0.3);
+        }
+
+        .close-modal {
+            color: #ffffff;
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-modal:hover {
+            color: var(--ted-red);
+        }
+
+        .hero-overlay, .hero-content {
+            transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+        }
+
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        /* --- Animations --- */
+        @keyframes heroFade {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(235, 0, 40, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(235, 0, 40, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(235, 0, 40, 0); }
+        }
+
+        .hero-end-screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-end-screen.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .replay-btn {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 15px 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 40px;
+        }
+
+        .replay-btn:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .scroll-hint {
+            color: var(--ted-red);
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-7px);}
+        }
+
+        /* --- Mobile Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-toggle {
+                display: block;
+            }
+            .opt-in {
+                flex-direction: column;
+            }
+            .hero-title {
+                font-size: 60px;
+                letter-spacing: -2px;
+            }
+            .mission {
+                padding: 120px 0;
+            }
+            .apply-card {
+                padding: 60px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <a href="youth.html" class="side-youth-header" id="youthVersionLink">TEDx Johns Creek <span>YOUTH</span></a>
-    
+
     <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo-section">
-                <a href="#home">
-                    <img src="TEDxJohnsCreekLogo.jpeg" alt="TEDx Johns Creek" class="nav-logo-img">
-                </a>
-            </div>
-            <ul class="nav-menu">
-                <li class="mobile-only-youth"><a href="youth.html" class="nav-link" style="color: #eb0028; font-weight: 700;">YOUTH VERSION</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#pillars" class="nav-link">Pillars</a></li>
-                <li><a href="#speakers" class="nav-link">Speakers</a></li>
-                <li><a href="#team" class="nav-link">Team</a></li>
-                <li><a href="#tickets" class="nav-link">Archive</a></li>
-                <li><a href="#apply" class="nav-link">Apply</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <img src="TEDxJohnsCreekYouthLogo.jpeg" alt="TEDxJohnsCreekYouth">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#theme">The Theme</a></li>
+                <li><a href="#apply">Apply</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#venue">Venue</a></li>
+                <li><a href="main.html">Past Events</a></li>
             </ul>
-            <div class="nav-toggle">
-                <span></span><span></span><span></span>
+            <div class="nav-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="next-event-badge fade-in" style="display: inline-block; background-color: rgba(235,0,40,0.15); border: 1px solid #eb0028; color: #eb0028; padding: 8px 20px; border-radius: 50px; font-weight: 700; font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px;">NEXT EVENT: YOUTH VERSION &bull; SEPT 19</div>
-            <div class="hero-subtitle fade-in">Saturday April 25 2026</div>
-            <h1 class="hero-title fade-in delay-1">EVOLVE</h1>
-            <p class="hero-tagline fade-in delay-2">Growth in motion. The courage to change. The vision to become more than we were yesterday.</p>
-            <p class="hero-description fade-in delay-3">At TEDx Johns Creek, EVOLVE is a call to thinkers, creators, and changemakers who are not just adapting to the future — they are actively shaping it.</p>
-            <div class="hero-buttons fade-in delay-3">
-                <a href="https://nripulse.com/tedx-johns-creek-2026-celebrates-ideas-identity-and-evolution/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">NRI Pulse Coverage</a>
-                <a href="#about" class="btn btn-secondary">Learn More</a>
+    <header class="hero">
+        <video class="hero-video" autoplay muted playsinline id="heroVideo">
+            <source src="videoplayback.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay" id="heroOverlay"></div>
+        <div class="hero-content" id="heroContent">
+            <span class="hero-subtitle">Saturday, September 19th, 2026</span>
+            <h1 class="hero-title">THE NEXT<br>EVOLUTION</h1>
+            <div class="hero-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; animation: heroFade 2.4s ease-out;">
+                <a href="#about" class="cta-button">DISCOVER THE SPARK</a>
+                <a href="main.html" class="cta-button" style="background: transparent; border: 2px solid var(--white); box-shadow: none;">VIEW PAST EVENTS</a>
             </div>
         </div>
-    </section>
+        <div class="hero-end-screen" id="heroEndScreen">
+            <button class="replay-btn" id="replayBtn"><i class="fas fa-redo"></i> REPLAY SPARK</button>
+            <a href="#about" class="scroll-hint">
+                <span>SCROLL TO EXPLORE</span>
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+        <button class="info-btn" id="infoToggle" title="Show Info">
+            <i class="fas fa-info-circle"></i>
+        </button>
+        <button class="mute-btn" id="muteToggle" title="Toggle Sound">
+            <i class="fas fa-volume-mute" id="muteIcon"></i>
+        </button>
+    </header>
 
-    <section id="about" class="about-theme">
+    <section id="about" class="mission" style="padding-bottom: 0;">
         <div class="container">
-            <h2 class="section-title reveal">OUR THEME FOR 2026 IS EVOLVE</h2>
-            <div class="about-content reveal">
-                At TEDx Johns Creek, EVOLVE is a call to thinkers, creators, and changemakers who are not just adapting to the future — they are actively shaping it. Through powerful ideas and lived experiences, we explore how growth begins within and radiates outward to transform families, communities, industries, and the world.
-            </div>
+            <span class="section-tag">ABOUT THE EVENT</span>
+            <h2 class="mission-title" style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900;">A Stage for the Future</h2>
+            <p class="mission-text">
+                TEDxJohnsCreekYouth is an independently organized event that brings the spirit of TED to our local community. On <strong>September 19th, 2026</strong>, we will gather at <strong>Phase Events</strong> to witness the power of youth-led ideas. Our mission is to provide a world-class platform where the next generation of thinkers can share their unique perspectives and drive meaningful global change.
+            </p>
         </div>
     </section>
 
-    <section id="pillars" class="pillars">
-        <h2 class="pillars-title reveal">THE FIVE PILLARS OF EVOLVE</h2>
-        <p class="pillars-subtitle reveal">Scroll to explore each dimension of transformation</p>
-        <div class="pillars-scroll-container">
-            <div class="pillar-panel">
-                <span class="pillar-number">01</span>
-                <span class="pillar-icon">🔴</span>
-                <h3 class="pillar-panel-title">Personal Evolution</h3>
-                <p class="pillar-panel-description">The inner journeys — overcoming fear, redefining identity, healing, learning, and discovering purpose. Every breakthrough begins with someone choosing to grow.</p>
-            </div>
-            <div class="pillar-panel">
-                <span class="pillar-number">02</span>
-                <span class="pillar-icon">🔴</span>
-                <h3 class="pillar-panel-title">Social Evolution</h3>
-                <p class="pillar-panel-description">How communities rethink systems, amplify unheard voices, and build more inclusive, compassionate societies.</p>
-            </div>
-            <div class="pillar-panel">
-                <span class="pillar-number">03</span>
-                <span class="pillar-icon">🔴</span>
-                <h3 class="pillar-panel-title">Innovation & Ideas</h3>
-                <p class="pillar-panel-description">New technologies, bold research, creative solutions, and unexpected perspectives that move humanity forward.</p>
-            </div>
-            <div class="pillar-panel">
-                <span class="pillar-number">04</span>
-                <span class="pillar-icon">🔴</span>
-                <h3 class="pillar-panel-title">Leadership Evolution</h3>
-                <p class="pillar-panel-description">From power to purpose. From authority to empathy. The leaders of tomorrow must evolve beyond titles into impact.</p>
-            </div>
-            <div class="pillar-panel">
-                <span class="pillar-number">05</span>
-                <span class="pillar-icon">🔴</span>
-                <h3 class="pillar-panel-title">Resilience & Reinvention</h3>
-                <p class="pillar-panel-description">Sometimes evolution isn't a choice — it's survival. Stories of setbacks turning into comebacks remind us that transformation is always possible.</p>
-            </div>
-        </div>
-        <div class="scroll-indicator">← Scroll to explore →</div>
-    </section>
-
-    <section id="speakers" class="speakers">
+    <section id="theme" class="mission">
         <div class="container">
-            <h2 class="section-title reveal">MEET OUR SPEAKERS</h2>
-            <div class="speakers-grid">
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="brebardenwerper.jpeg" alt="Bre Bardenwerper">
-                    </div>
-                    <h3 class="speaker-name">Bre Bardenwerper</h3>
-                    <p class="speaker-teaser">Empowering. Visionary. Driven.</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="krishmakhija.jpeg" alt="Krish Makhija">
-                    </div>
-                    <h3 class="speaker-name">Krish Makhija</h3>
-                    <p class="speaker-teaser">Vibrant. Brilliant. Rising.</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="joemittiga.jpeg" alt="Joe Mittiga">
-                    </div>
-                    <h3 class="speaker-name">Joe Mittiga</h3>
-                    <p class="speaker-teaser">Leadership | Resilience | Transformation</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="nanditagodbole.jpeg" alt="Nandita Godbole">
-                    </div>
-                    <h3 class="speaker-name">Nandita Godbole</h3>
-                    <p class="speaker-teaser">Star Chef. Creative. Limitless.</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="sirinyelmenoktar.jpeg" alt="Sirin Yelmen Oktar">
-                    </div>
-                    <h3 class="speaker-name">Sirin Yelmen Oktar</h3>
-                    <p class="speaker-teaser">Poised. Impactful. Inspiring.</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="sagarsoni.jpeg" alt="Sagar Soni">
-                    </div>
-                    <h3 class="speaker-name">Sagar Soni</h3>
-                    <p class="speaker-teaser">Connection | Alignment | Purpose</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="nnamdiihenacho.jpeg" alt="Nnamdi Ihenacho">
-                    </div>
-                    <h3 class="speaker-name">Nnamdi Ihenacho</h3>
-                    <p class="speaker-teaser">Authentic. Courageous. Pioneer.</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="nivedlakshman.jpeg" alt="Nived Lakshman">
-                    </div>
-                    <h3 class="speaker-name">Nived Lakshman</h3>
-                    <p class="speaker-teaser">Ground-Breaking. Purposeful. Unstoppable.</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="nazeeradawood.jpeg" alt="Nazeera Dawood">
-                    </div>
-                    <h3 class="speaker-name">Nazeera Dawood</h3>
-                    <p class="speaker-teaser">Powerful | Visionary | Fierce</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="drkarinluise.jpeg" alt="Dr. Karin Luise">
-                    </div>
-                    <h3 class="speaker-name">Dr. Karin Luise</h3>
-                    <p class="speaker-teaser">Bold. Transformative. Fearless.</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="ninaadlakshman.jpeg" alt="Ninaad Lakshman">
-                    </div>
-                    <h3 class="speaker-name">Ninaad Lakshman</h3>
-                    <p class="speaker-teaser">Bold · Insightful · Trailblazer</p>
-                </div>
-
-                <div class="speaker-card reveal">
-                    <div class="speaker-poster">
-                        <img src="dethragiles.jpeg" alt="Dethra Giles">
-                    </div>
-                    <h3 class="speaker-name">Dethra Giles</h3>
-                    <p class="speaker-teaser">Optimizing. Strategic. Transformative.</p>
-                </div>
-
-            </div>
+            <span class="section-tag">THE 2026 THEME</span>
+            <h2 class="mission-title">"One Spark Can Ignite a Movement."</h2>
+            <p class="mission-text">
+                The Spark is the beginning of everything. It's that fleeting moment of inspiration, the sudden realization, or the burning passion that refuses to be ignored. This year, we explore how individual "sparks" in Johns Creek are evolving into collective movements. From technology and art to social reform and science, we celebrate the ideas that are lighting the way toward the next evolution of our society.
+            </p>
         </div>
     </section>
 
-    <section id="tickets" class="tickets">
+    <section id="apply" class="apply">
         <div class="container">
-            <h2 class="section-title reveal">EVENT COVERAGE</h2>
-            <div class="tickets-content reveal">
-                <h3 class="tickets-subtitle">NRI Pulse Highlights</h3>
-                <p class="tickets-description">TEDx Johns Creek 2026: EVOLVE was featured by NRI Pulse. Read about the ideas, identity, and evolution that shaped our event.</p>
-                <p class="tickets-info">"TEDx Johns Creek 2026 celebrates ideas, identity, and evolution"</p>
-                <a href="https://nripulse.com/tedx-johns-creek-2026-celebrates-ideas-identity-and-evolution/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Read NRI Pulse Coverage</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="apply" class="application">
-        <div class="container">
-            <h2 class="section-title reveal">APPLY TO SPEAK OR JOIN THE TEAM</h2>
-            <div class="application-content reveal">
-                <p class="application-description">Thank you to everyone who applied to speak or join our team for TEDx Johns Creek 2026: EVOLVE. We were overwhelmed by the passion and ideas shared with us.</p>
-                <div class="application-deadline">⚠️ Applications are now closed.</div>
+            <div class="apply-card">
+                <span class="badge">OPENING SOON</span>
+                <h2 class="apply-title">Speaker & Volunteer Applications</h2>
+                <p style="margin-bottom: 45px; color: #888; font-size: 17px;">The evolution begins with you. Follow our Instagram to stay updated on speaker and volunteer applications.</p>
+                <div style="display: flex; justify-content: center;">
+                    <a href="https://www.instagram.com/tedxjohnscreek" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: flex; align-items: center; gap: 12px; padding: 18px 45px; font-size: 14px;">
+                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                        FOLLOW FOR UPDATES
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="team" class="team">
         <div class="container">
-            <h2 class="section-title reveal">THE ORGANIZING TEAM</h2>
+            <span class="section-tag">THE SPARK MAKERS</span>
+            <h2 style="font-size: 42px; text-align: center; font-weight: 900; letter-spacing: -1px;">Organizing Team</h2>
+            
             <div class="team-grid">
-                <div class="team-card reveal">
-                    <div class="team-image"><img src="divya.jpeg" alt="Divya Anand"></div>
-                    <h3 class="team-name">Divya Anand</h3>
-                    <p class="team-role">Lead Organizer / Licensee</p>
+                <!-- Divya Anand -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="divya.jpeg" alt="Divya Anand">
+                    </div>
+                    <h3 class="member-name">Divya Anand</h3>
+                    <span class="member-role">Lead Organizer / Licensee</span>
                 </div>
-                <div class="team-card reveal">
-                    <div class="team-image"><img src="Rajini.jpeg" alt="Rajini Stephen Britto"></div>
-                    <h3 class="team-name">Rajini Stephen Britto</h3>
-                    <p class="team-role">Event Experience Lead</p>
+
+                <!-- Rajini Stephen Britto -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="Rajini.jpeg" alt="Rajini Stephen Britto">
+                    </div>
+                    <h3 class="member-name">Rajini Stephen Britto</h3>
+                    <span class="member-role">Event Experience Lead</span>
                 </div>
-                <div class="team-card reveal">
-                    <div class="team-image"><img src="Sudha.jpeg" alt="Sudha Rajasekaran"></div>
-                    <h3 class="team-name">Sudha Rajasekaran</h3>
-                    <p class="team-role">Event Logistics Lead</p>
+
+                <!-- Sudha Rajasekaran -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="Sudha.jpeg" alt="Sudha Rajasekaran">
+                    </div>
+                    <h3 class="member-name">Sudha Rajasekaran</h3>
+                    <span class="member-role">Event Logistics Lead</span>
                 </div>
-                <div class="team-card reveal">
-                    <div class="team-image"><img src="yashadesai.jpeg" alt="Yasha Desai"></div>
-                    <h3 class="team-name">Yasha Desai</h3>
-                    <p class="team-role">Event Lead / Emcee</p>
+
+                <!-- Yasha Desai -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="yashadesai.jpeg" alt="Yasha Desai">
+                    </div>
+                    <h3 class="member-name">Yasha Desai</h3>
+                    <span class="member-role">Event Lead / Emcee</span>
                 </div>
-                <div class="team-card reveal">
-                    <div class="team-image"><img src="SANDHYARAKESH.jpeg" alt="Sandhya Rakesh"></div>
-                    <h3 class="team-name">Sandhya Rakesh</h3>
-                    <p class="team-role">Event Coordinator</p>
+
+                <!-- Sandhya Rakesh -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="SANDHYARAKESH.jpeg" alt="Sandhya Rakesh">
+                    </div>
+                    <h3 class="member-name">Sandhya Rakesh</h3>
+                    <span class="member-role">Event Coordinator</span>
                 </div>
-                <div class="team-card reveal">
-                    <div class="team-image"><img src="harshit.jpeg" alt="Harshit Chaturvedy" style="object-position: top;"></div>
-                    <h3 class="team-name">Harshit Chaturvedy</h3>
-                    <p class="team-role">Youth Leader / Website Developer</p>
+
+                <!-- Harshit Chaturvedy -->
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="harshit.jpeg" alt="Harshit Chaturvedy">
+                    </div>
+                    <h3 class="member-name">Harshit Chaturvedy</h3>
+                    <span class="member-role">Youth Leader / Web Developer</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="sponsors">
+    <section id="venue" class="mission" style="padding-top: 50px;">
         <div class="container">
-            <h2 class="section-title reveal">OUR SPONSORS</h2>
-            <div class="sponsors-grid">
-                <div class="sponsor-logo reveal"><img src="CodeRepo.jpeg" alt="Code Repo"></div>
-                <div class="sponsor-logo reveal"><img src="GLOBAL_SOC.jpeg" alt="Global SOC"></div>
-                <div class="sponsor-logo reveal"><img src="GG.jpeg" alt="GG"></div>
-                <a href="https://stem-sprouts.org" target="_blank" rel="noopener noreferrer" class="sponsor-logo reveal"><img src="stem-sprouts.png" alt="STEM Sprouts"></a>
-                <div class="sponsor-logo reveal"><img src="LIFE.jpeg" alt="Life"></div>
+            <span class="section-tag">THE VENUE</span>
+            <h2 class="mission-title" style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900; margin-bottom: 20px;">Phase Events</h2>
+            <p style="color: var(--ted-red); font-weight: 700; letter-spacing: 1px; margin-bottom: 40px;">12150 Morris Rd, Alpharetta, GA 30005</p>
+            <div style="border-radius: 12px; overflow: hidden; border: 1px solid #222; line-height: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.747514120306!2d-84.301323623547!3d34.02465131885694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5a1e27a177259%3A0xc3995817c180993!2sPhase%20Events!5e0!3m2!1sen!2sus!4v1715250000000!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2 class="cta-title reveal">EVOLVE<br>TEDx Johns Creek 2026</h2>
-            <p class="cta-description reveal">EVOLVE was about growth in motion — the courage to change, the wisdom to adapt, and the vision to become more than we were yesterday.</p>
-            <a href="https://nripulse.com/tedx-johns-creek-2026-celebrates-ideas-identity-and-evolution/" target="_blank" rel="noopener noreferrer" class="btn btn-primary reveal">Read NRI Pulse Coverage</a>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title reveal">GET IN TOUCH</h2>
-            <div class="contact-content reveal">
-                <p style="font-size: clamp(16px, 2.5vw, 20px); margin-bottom: 30px;">Ready to be part of something transformative?</p>
-                <a href="mailto:tedxjohnscreek@gmail.com" class="contact-email">tedxjohnscreek@gmail.com</a>
-                <p class="contact-info">Contact <strong>Divya Anand</strong> (Lead Organizer) at +1(404)-759-9411 for any inquiries.</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/tedxjohnscreek" class="social-icon" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/company/tedxjohns-creek/" class="social-icon" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
 
     <footer>
         <div class="footer-tedx">This independent <strong>TEDx</strong> event is operated under license from TED.</div>
-        <p style="margin-top: 10px;"><a href="https://www.ted.com/tedx/events/67854" target="_blank" rel="noopener noreferrer" style="color: #eb0028; text-decoration: none; font-weight: 600;">View our official TEDx page on TED.com →</a></p>
+        <p style="margin-top: 10px;"><a href="https://www.ted.com/tedx/events/67854" target="_blank" rel="noopener noreferrer" style="color: var(--ted-red); text-decoration: none; font-weight: 600;">View our official TEDx page on TED.com →</a></p>
         <p>&copy; 2026 TEDx Johns Creek. All rights reserved.</p>
-        <p style="margin-top: 10px; font-size: clamp(11px, 1.8vw, 13px);">Designed by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: #eb0028; text-decoration: none; font-weight: 600;">Harshit Chaturvedy</a></p>
-        <p style="margin-top: 15px; font-size: clamp(10px, 1.6vw, 12px); color: #888;">This website is designed and coded with <a href="javascript:void(0)" id="accessibilityLink" style="color: #eb0028; text-decoration: underline;">accessibility</a> in mind.</p>
+        <p style="margin-top: 10px; font-size: clamp(11px, 1.8vw, 13px);">Designed by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: var(--ted-red); text-decoration: none; font-weight: 600;">Harshit Chaturvedy</a></p>
+        <p style="margin-top: 15px; font-size: clamp(10px, 1.6vw, 12px); color: #888;">This website is designed and coded with <a href="javascript:void(0)" id="accessibilityLink" style="color: var(--ted-red); text-decoration: underline;">accessibility</a> in mind.</p>
+        
+        <div class="social-links">
+            <a href="https://www.instagram.com/tedxjohnscreek" class="social-icon" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/tedxjohns-creek/" class="social-icon" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
     </footer>
 
     <!-- Accessibility Info Card Modal -->
     <div id="accessibilityModal" class="modal" style="display:none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); align-items: center; justify-content: center;">
-        <div class="modal-content" style="background-color: #1a1a1a; margin: auto; padding: 40px; border: 1px solid #eb0028; width: 90%; max-width: 600px; border-radius: 12px; color: #ffffff; position: relative; box-shadow: 0 0 50px rgba(235,0,40,0.3);">
-            <span class="close-modal" id="closeModal" style="color: #ffffff; position: absolute; top: 15px; right: 25px; font-size: 35px; font-weight: bold; cursor: pointer;">&times;</span>
-            <h2 style="color: #eb0028; margin-bottom: 20px; font-family: 'Montserrat', sans-serif;">Accessibility Features</h2>
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2 style="color: var(--ted-red); margin-bottom: 20px; font-family: 'Montserrat', sans-serif;">Accessibility Features</h2>
             <div style="line-height: 1.8; font-size: 16px;">
                 <p style="margin-bottom: 15px;">We believe that ideas worth spreading should be accessible to everyone. This website has been built following <strong>WCAG 2.1</strong> guidelines to ensure a high standard of accessibility:</p>
                 <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Semantic HTML:</strong> Proper use of headings and landmarks for screen reader navigation.</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Color Contrast:</strong> High contrast ratios for text and UI elements to aid visibility.</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Keyboard Navigation:</strong> Fully navigable via keyboard with visible focus indicators.</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Responsive Design:</strong> Fluid layouts that adapt to various screen sizes and zoom levels.</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: #eb0028; margin-right: 10px;"></i> <strong>Alt Text:</strong> Meaningful descriptions for all functional and informative imagery.</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Semantic HTML:</strong> Proper use of headings and landmarks for screen reader navigation.</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Color Contrast:</strong> High contrast ratios for text and UI elements to aid visibility.</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Keyboard Navigation:</strong> Fully navigable via keyboard with visible focus indicators.</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Responsive Design:</strong> Fluid layouts that adapt to various screen sizes and zoom levels.</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Alt Text:</strong> Meaningful descriptions for all functional and informative imagery.</li>
                 </ul>
-                <p style="margin-top: 20px; font-size: 14px; color: #ccc;">If you encounter any barriers while using this site, please reach out to us at <a href="mailto:tedxjohnscreek@gmail.com" style="color: #eb0028; text-decoration: none; font-weight: 600;">tedxjohnscreek@gmail.com</a>.</p>
+                <p style="margin-top: 20px; font-size: 14px; color: #ccc;">If you encounter any barriers while using this site, please reach out to us at <a href="mailto:tedxjohnscreek@gmail.com" style="color: var(--ted-red); text-decoration: none; font-weight: 600;">tedxjohnscreek@gmail.com</a>.</p>
             </div>
         </div>
     </div>
 
-    <div id="spotlightOverlay" class="spotlight-overlay hidden">
-        <div id="spotlightTooltip" class="spotlight-tooltip">Looking for our Youth Version? Click here!</div>
-    </div>
-
     <script>
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => { navbar.classList.toggle('scrolled', window.scrollY > 50); });
-
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        navToggle.addEventListener('click', () => { navToggle.classList.toggle('active'); navMenu.classList.toggle('active'); });
-        document.querySelectorAll('.nav-link').forEach(link => { link.addEventListener('click', () => { navToggle.classList.remove('active'); navMenu.classList.remove('active'); }); });
-
-        function reveal() {
-            document.querySelectorAll('.reveal').forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 150) el.classList.add('active');
-            });
-        }
-        window.addEventListener('scroll', reveal);
-        reveal();
-
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) window.scrollTo({ top: target.offsetTop - navbar.offsetHeight, behavior: 'smooth' });
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
-        const pillarsContainer = document.querySelector('.pillars-scroll-container');
-        if (pillarsContainer) {
-            pillarsContainer.addEventListener('wheel', (e) => { if (e.deltaY !== 0) { e.preventDefault(); pillarsContainer.scrollLeft += e.deltaY; } });
-        }
+        // Navbar transparent to solid on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 80) {
+                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+                navbar.style.padding = '12px 0';
+                navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.background = 'rgba(18, 18, 18, 0.7)';
+                navbar.style.padding = '15px 0';
+                navbar.style.boxShadow = 'none';
+            }
+        });
 
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        window.addEventListener('scroll', () => { scrollToTopBtn.classList.toggle('visible', window.scrollY > 300); });
-        scrollToTopBtn.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+        // Mobile Menu Toggle (Basic)
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'rgba(10, 10, 10, 0.95)';
+                navLinks.style.padding = '20px';
+                navLinks.style.gap = '20px';
+            }
+        });
+
+        // Video Mute Toggle
+        const video = document.getElementById('heroVideo');
+        const muteBtn = document.getElementById('muteToggle');
+        const muteIcon = document.getElementById('muteIcon');
+        const heroOverlay = document.getElementById('heroOverlay');
+        const heroContent = document.getElementById('heroContent');
+
+        const infoBtn = document.getElementById('infoToggle');
+
+        muteBtn.addEventListener('click', () => {
+            if (video.muted) {
+                // UNMUTING
+                video.muted = false;
+                muteIcon.classList.remove('fa-volume-mute');
+                muteIcon.classList.add('fa-volume-up');
+                muteBtn.title = 'Mute';
+                
+                // HIDE OVERLAY AND CONTENT
+                heroOverlay.classList.add('fade-out');
+                heroContent.classList.add('fade-out');
+                
+                // SHOW INFO BUTTON
+                infoBtn.classList.add('visible');
+            } else {
+                // MUTING
+                video.muted = true;
+                muteIcon.classList.remove('fa-volume-up');
+                muteIcon.classList.add('fa-volume-mute');
+                muteBtn.title = 'Unmute';
+            }
+        });
+
+        // Info Button Logic
+        infoBtn.addEventListener('click', () => {
+            heroOverlay.classList.remove('fade-out');
+            heroContent.classList.remove('fade-out');
+            infoBtn.classList.remove('visible');
+        });
+
+        // Video Ended Logic
+        const heroEndScreen = document.getElementById('heroEndScreen');
+        const replayBtn = document.getElementById('replayBtn');
+
+        video.addEventListener('ended', () => {
+            heroEndScreen.classList.add('visible');
+            muteBtn.style.opacity = '0'; // Hide mute toggle on end screen
+            muteBtn.style.visibility = 'hidden';
+        });
+
+        replayBtn.addEventListener('click', () => {
+            video.currentTime = 0;
+            video.play();
+            heroEndScreen.classList.remove('visible');
+            muteBtn.style.opacity = '1';
+            muteBtn.style.visibility = 'visible';
+        });
+
+        // Intersection Observer for Video Pause/Play
+        const heroSection = document.querySelector('.hero');
+        const observerOptions = {
+            root: null,
+            threshold: 0.1 // Pause when less than 10% is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(heroSection);
 
         // Accessibility Modal Logic
         const modal = document.getElementById('accessibilityModal');
         const btn = document.getElementById('accessibilityLink');
         const span = document.getElementById('closeModal');
 
-        btn.onclick = function() {
-            modal.style.display = "flex";
-            document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+        if (btn) {
+            btn.onclick = function() {
+                modal.style.display = "flex";
+                document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+            }
         }
 
-        span.onclick = function() {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto";
+        if (span) {
+            span.onclick = function() {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
         }
 
         window.onclick = function(event) {
@@ -626,41 +939,6 @@
                 document.body.style.overflow = "auto";
             }
         }
-
-        // Spotlight Feature Logic
-        const spotlightOverlay = document.getElementById('spotlightOverlay');
-        const youthLink = document.getElementById('youthVersionLink');
-
-        function initSpotlight() {
-            // Check if it's the first visit
-            if (!localStorage.getItem('hasVisitedBefore')) {
-                // Wait for a second to let the page settle
-                setTimeout(() => {
-                    const rect = youthLink.getBoundingClientRect();
-                    // Only show if the link is visible (not on mobile)
-                    if (rect.width > 0 && rect.height > 0) {
-                        const x = rect.left + rect.width / 2;
-                        const y = rect.top + rect.height / 2;
-                        const r = Math.max(rect.width, rect.height) / 2 + 25;
-
-                        spotlightOverlay.style.setProperty('--x', `${x}px`);
-                        spotlightOverlay.style.setProperty('--y', `${y}px`);
-                        spotlightOverlay.style.setProperty('--r', `${r}px`);
-
-                        spotlightOverlay.classList.remove('hidden');
-                        document.body.style.overflow = 'hidden'; // Lock scrolling
-                        localStorage.setItem('hasVisitedBefore', 'true');
-                    }
-                }, 800);
-            }
-        }
-
-        spotlightOverlay.addEventListener('click', () => {
-            spotlightOverlay.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Unlock scrolling
-        });
-
-        initSpotlight();
     </script>
 </body>
 </html>
