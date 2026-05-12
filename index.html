@@ -53,6 +53,68 @@
             padding: 0 20px;
         }
 
+        /* --- Preloader --- */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--black);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .preloader-spark {
+            width: 120px;
+            animation: sparkPulse 2s infinite ease-in-out;
+        }
+
+        @keyframes sparkPulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; filter: drop-shadow(0 0 5px var(--ted-red)); }
+            50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 30px var(--ted-red)); }
+        }
+
+        /* --- Countdown Timer --- */
+        .countdown-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .countdown-value {
+            display: block;
+            font-size: clamp(24px, 5vw, 42px);
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--ted-red);
+            text-shadow: 0 0 15px rgba(235, 0, 40, 0.3);
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            display: block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gray);
+            font-weight: 700;
+        }
+
         /* --- Navigation --- */
         .progress-container {
             position: fixed;
@@ -899,6 +961,26 @@
 
     <section id="venue" class="mission" style="padding-top: 50px;">
         <div class="container">
+            <span class="section-tag">THE COUNTDOWN</span>
+            <div class="countdown-container" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Days</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Hours</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Min</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Sec</span>
+                </div>
+            </div>
+
             <span class="section-tag">THE VENUE</span>
             <h2 class="mission-title" style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900; margin-bottom: 20px;">Phase Events</h2>
             <p style="color: var(--ted-red); font-weight: 700; letter-spacing: 1px; margin-bottom: 40px;">12150 Morris Rd, Alpharetta, GA 30005</p>
@@ -1167,6 +1249,41 @@
                 document.body.style.overflow = "auto";
             }
         }
+
+        // Countdown Timer Logic
+        const targetDate = new Date("September 19, 2026 09:00:00").getTime();
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("countdown").innerHTML = "<h3 style='color:var(--ted-red)'>EVENT LIVE</h3>";
+            }
+        };
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                preloader.style.visibility = 'hidden';
+            }, 1500); // Give it a bit of time for a cinematic feel
+        });
     </script>
 </body>
 </html>
