@@ -6,12 +6,10 @@
     <title>TEDxJohnsCreekYouth | THE NEXT EVOLUTION</title>
     <link rel="icon" type="image/jpeg" href="tedxfavicon.jpeg">
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
     
-    <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -78,41 +76,30 @@
             50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 30px var(--ted-red)); }
         }
 
-        /* --- Countdown Timer --- */
+        /* --- Countdown Container Redesign --- */
         .countdown-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
             max-width: 600px;
             margin: 0 auto 50px;
         }
 
-        .countdown-item {
+        .countdown-coming-soon {
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 20px 10px;
+            padding: 30px 20px;
             border-radius: 8px;
             text-align: center;
         }
 
         .countdown-value {
             display: block;
-            font-size: clamp(24px, 5vw, 42px);
+            font-size: clamp(32px, 6vw, 54px);
             font-weight: 900;
             font-family: 'Montserrat', sans-serif;
             color: var(--ted-red);
             text-shadow: 0 0 15px rgba(235, 0, 40, 0.3);
-            line-height: 1;
-            margin-bottom: 5px;
-        }
-
-        .countdown-label {
-            display: block;
-            font-size: 10px;
-            text-transform: uppercase;
+            line-height: 1.1;
             letter-spacing: 2px;
-            color: var(--gray);
-            font-weight: 700;
+            text-transform: uppercase;
         }
 
         /* --- Navigation --- */
@@ -818,7 +805,7 @@
         </video>
         <div class="hero-overlay" id="heroOverlay"></div>
         <div class="hero-content" id="heroContent">
-            <span class="hero-subtitle">Saturday, September 19th, 2026</span>
+            <span class="hero-subtitle">Coming Soon</span>
             <h1 class="hero-title">THE NEXT<br>EVOLUTION</h1>
             <div class="hero-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; animation: heroFade 2.4s ease-out;">
                 <a href="#about" class="cta-button">DISCOVER THE SPARK</a>
@@ -849,7 +836,7 @@
             <span class="section-tag">ABOUT THE EVENT</span>
             <h2 class="mission-title" style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900;">A Stage for the Future</h2>
             <p class="mission-text">
-                TEDxJohnsCreekYouth is an independently organized event that brings the spirit of TED to our local community. On <strong>September 19th, 2026</strong>, we will gather at <strong>Phase Events</strong> to witness the power of youth-led ideas. Our mission is to provide a world-class platform where the next generation of thinkers can share their unique perspectives and drive meaningful global change.
+                TEDxJohnsCreekYouth is an independently organized event that brings the spirit of TED to our local community. On <strong>a date coming soon</strong>, we will gather at <strong>Phase Events</strong> to witness the power of youth-led ideas. Our mission is to provide a world-class platform where the next generation of thinkers can share their unique perspectives and drive meaningful global change.
             </p>
         </div>
     </section>
@@ -886,7 +873,6 @@
             <h2 style="font-size: 42px; text-align: center; font-weight: 900; letter-spacing: -1px;">Organizing Team</h2>
             
             <div class="team-grid">
-                <!-- Divya Anand -->
                 <div class="team-member">
                     <div class="member-img">
                         <img src="divya.jpeg" alt="Divya Anand">
@@ -895,7 +881,6 @@
                     <span class="member-role">Lead Organizer / Licensee</span>
                 </div>
 
-                <!-- Rajini Stephen Britto -->
                 <div class="team-member">
                     <div class="member-img">
                         <img src="Rajini.jpeg" alt="Rajini Stephen Britto">
@@ -904,7 +889,6 @@
                     <span class="member-role">Event Experience Lead</span>
                 </div>
 
-                <!-- Sudha Rajasekaran -->
                 <div class="team-member">
                     <div class="member-img">
                         <img src="Sudha.jpeg" alt="Sudha Rajasekaran">
@@ -913,7 +897,6 @@
                     <span class="member-role">Event Logistics Lead</span>
                 </div>
 
-                <!-- Yasha Desai -->
                 <div class="team-member">
                     <div class="member-img">
                         <img src="yashadesai.jpeg" alt="Yasha Desai">
@@ -922,7 +905,6 @@
                     <span class="member-role">Event Lead</span>
                 </div>
 
-                <!-- Sandhya Rakesh -->
                 <div class="team-member">
                     <div class="member-img">
                         <img src="SANDHYARAKESH.jpeg" alt="Sandhya Rakesh">
@@ -931,7 +913,6 @@
                     <span class="member-role">Event Lead</span>
                 </div>
 
-                <!-- Harshit Chaturvedy -->
                 <div class="team-member">
                     <div class="member-img">
                         <img src="harshit.jpeg" alt="Harshit Chaturvedy">
@@ -962,22 +943,10 @@
     <section id="venue" class="mission" style="padding-top: 50px;">
         <div class="container">
             <span class="section-tag">THE COUNTDOWN</span>
+            
             <div class="countdown-container" id="countdown">
-                <div class="countdown-item">
-                    <span class="countdown-value" id="days">00</span>
-                    <span class="countdown-label">Days</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="hours">00</span>
-                    <span class="countdown-label">Hours</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="minutes">00</span>
-                    <span class="countdown-label">Min</span>
-                </div>
-                <div class="countdown-item">
-                    <span class="countdown-value" id="seconds">00</span>
-                    <span class="countdown-label">Sec</span>
+                <div class="countdown-coming-soon">
+                    <span class="countdown-value">Coming Soon</span>
                 </div>
             </div>
 
@@ -986,304 +955,15 @@
             <p style="color: var(--ted-red); font-weight: 700; letter-spacing: 1px; margin-bottom: 40px;">12150 Morris Rd, Alpharetta, GA 30005</p>
             <div style="border-radius: 12px; overflow: hidden; border: 1px solid #222; line-height: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
                 <iframe 
-                    src="https://www.google.com/maps?q=12150+Morris+Rd,+Alpharetta,+GA+30005&output=embed" 
+                    src="https://maps.google.com/maps?q=12150%20Morris%20Rd,%20Alpharetta,%20GA%2030005&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                     width="100%" 
                     height="450" 
                     style="border:0;" 
                     allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
+                    loading="lazy">
                 </iframe>
             </div>
         </div>
     </section>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Brand Column -->
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <img src="TEDxJohnsCreekYouthLogo.jpeg" alt="TEDxJohnsCreekYouth">
-                    </a>
-                    <div class="footer-tedx-info">
-                        This independent <strong>TEDx</strong> event is operated under license from TED.
-                    </div>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/tedxjohnscreek" class="social-icon" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/tedxjohns-creek/" class="social-icon" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <!-- Quick Links Column -->
-                <div>
-                    <span class="footer-title">EXPLORE</span>
-                    <a href="#about" class="footer-link">About the Event</a>
-                    <a href="#theme" class="footer-link">The 2026 Theme</a>
-                    <a href="#partnership" class="footer-link">Partner With Us</a>
-                    <a href="#apply" class="footer-link">Join the Movement</a>
-                    <a href="main.html" class="footer-link">Past Event Archive</a>
-                </div>
-
-                <!-- Connect Column -->
-                <div>
-                    <span class="footer-title">CONNECT</span>
-                    <a href="https://www.ted.com/tedx/events/67735" target="_blank" rel="noopener noreferrer" class="footer-link">Official TEDx Page</a>
-                    <a href="mailto:tedxjohnscreek@gmail.com" class="footer-link">General Inquiries</a>
-                    <a href="#venue" class="footer-link">Venue Information</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 TEDx Johns Creek. All rights reserved.</p>
-                <p>Designed by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: var(--white); text-decoration: none; font-weight: 600;">Harshit Chaturvedy</a></p>
-                <p>Designed with <a href="javascript:void(0)" id="accessibilityLink" style="color: var(--white); text-decoration: underline;">accessibility</a> in mind.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Accessibility Info Card Modal -->
-    <div id="accessibilityModal" class="modal" style="display:none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); align-items: center; justify-content: center;">
-        <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <h2 style="color: var(--ted-red); margin-bottom: 20px; font-family: 'Montserrat', sans-serif;">Accessibility Features</h2>
-            <div style="line-height: 1.8; font-size: 16px;">
-                <p style="margin-bottom: 15px;">We believe that ideas worth spreading should be accessible to everyone. This website has been built following <strong>WCAG 2.1</strong> guidelines to ensure a high standard of accessibility:</p>
-                <ul style="list-style-type: none; padding-left: 0;">
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Semantic HTML:</strong> Proper use of headings and landmarks for screen reader navigation.</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Color Contrast:</strong> High contrast ratios for text and UI elements to aid visibility.</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Keyboard Navigation:</strong> Fully navigable via keyboard with visible focus indicators.</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Responsive Design:</strong> Fluid layouts that adapt to various screen sizes and zoom levels.</li>
-                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="color: var(--ted-red); margin-right: 10px;"></i> <strong>Alt Text:</strong> Meaningful descriptions for all functional and informative imagery.</li>
-                </ul>
-                <p style="margin-top: 20px; font-size: 14px; color: #ccc;">If you encounter any barriers while using this site, please reach out to us at <a href="mailto:tedxjohnscreek@gmail.com" style="color: var(--ted-red); text-decoration: none; font-weight: 600;">tedxjohnscreek@gmail.com</a>.</p>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Navbar transparent to solid on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 80) {
-                navbar.style.background = 'rgba(10, 10, 10, 0.95)';
-                navbar.style.padding = '12px 0';
-                navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
-            } else {
-                navbar.style.background = 'rgba(18, 18, 18, 0.7)';
-                navbar.style.padding = '15px 0';
-                navbar.style.boxShadow = 'none';
-            }
-        });
-
-        // Mobile Menu Toggle (Basic)
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.display = 'none';
-            } else {
-                navLinks.style.display = 'flex';
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '100%';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.background = 'rgba(10, 10, 10, 0.95)';
-                navLinks.style.padding = '20px';
-                navLinks.style.gap = '20px';
-            }
-        });
-
-        // Video Mute Toggle
-        const video = document.getElementById('heroVideo');
-        const muteBtn = document.getElementById('muteToggle');
-        const muteIcon = document.getElementById('muteIcon');
-        const heroOverlay = document.getElementById('heroOverlay');
-        const heroContent = document.getElementById('heroContent');
-
-        const infoBtn = document.getElementById('infoToggle');
-
-        muteBtn.addEventListener('click', () => {
-            if (video.muted) {
-                // UNMUTING
-                video.muted = false;
-                muteIcon.classList.remove('fa-volume-mute');
-                muteIcon.classList.add('fa-volume-up');
-                muteBtn.title = 'Mute';
-                
-                // HIDE OVERLAY AND CONTENT
-                heroOverlay.classList.add('fade-out');
-                heroContent.classList.add('fade-out');
-                
-                // SHOW INFO BUTTON
-                infoBtn.classList.add('visible');
-            } else {
-                // MUTING
-                video.muted = true;
-                muteIcon.classList.remove('fa-volume-up');
-                muteIcon.classList.add('fa-volume-mute');
-                muteBtn.title = 'Unmute';
-            }
-        });
-
-        // Info Button Logic
-        infoBtn.addEventListener('click', () => {
-            heroOverlay.classList.remove('fade-out');
-            heroContent.classList.remove('fade-out');
-            infoBtn.classList.remove('visible');
-        });
-
-        // Video Ended Logic
-        const heroEndScreen = document.getElementById('heroEndScreen');
-        const replayBtn = document.getElementById('replayBtn');
-
-        video.addEventListener('ended', () => {
-            heroEndScreen.classList.add('visible');
-            muteBtn.style.opacity = '0'; // Hide mute toggle on end screen
-            muteBtn.style.visibility = 'hidden';
-        });
-
-        replayBtn.addEventListener('click', () => {
-            video.currentTime = 0;
-            video.play();
-            heroEndScreen.classList.remove('visible');
-            muteBtn.style.opacity = '1';
-            muteBtn.style.visibility = 'visible';
-        });
-
-        // Scroll to Top Logic
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.add('visible');
-            } else {
-                scrollToTopBtn.classList.remove('visible');
-            }
-        });
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Scroll Progress Bar Logic
-        const progressBar = document.getElementById('progressBar');
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            if (progressBar) {
-                progressBar.style.width = scrolled + "%";
-            }
-        });
-
-        // Intersection Observer for Video Pause/Play
-        const heroSection = document.querySelector('.hero');
-        const observerOptions = {
-            root: null,
-            threshold: 0.1 // Pause when less than 10% is visible
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
-            });
-        }, observerOptions);
-
-        observer.observe(heroSection);
-
-        // Reveal Animations Logic
-        const revealOptions = {
-            threshold: 0.3
-        };
-
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('reveal');
-                }
-            });
-        }, revealOptions);
-
-        document.querySelectorAll('.mission-title').forEach(el => revealObserver.observe(el));
-
-        // Accessibility Modal Logic
-        const modal = document.getElementById('accessibilityModal');
-        const btn = document.getElementById('accessibilityLink');
-        const span = document.getElementById('closeModal');
-
-        if (btn) {
-            btn.onclick = function() {
-                modal.style.display = "flex";
-                document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
-            }
-        }
-
-        if (span) {
-            span.onclick = function() {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-        }
-
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-        }
-
-        // Countdown Timer Logic
-        const targetDate = new Date("September 19, 2026 09:00:00").getTime();
-
-        const updateCountdown = () => {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.getElementById("countdown").innerHTML = "<h3 style='color:var(--ted-red)'>EVENT LIVE</h3>";
-            }
-        };
-
-        const countdownInterval = setInterval(updateCountdown, 1000);
-        updateCountdown();
-
-        // Preloader Logic
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.style.opacity = '0';
-                preloader.style.visibility = 'hidden';
-            }, 1500); // Give it a bit of time for a cinematic feel
-        });
-    </script>
 </body>
 </html>
