@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEDxJohnsCreekYouth | THE NEXT EVOLUTION</title>
+    <title>TEDx Johns Creek | THE NEXT EVOLUTION</title>
     <link rel="icon" type="image/jpeg" href="tedxfavicon.jpeg">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,29 +76,48 @@
             50% { transform: scale(1.1); opacity: 1; filter: drop-shadow(0 0 30px var(--ted-red)); }
         }
 
-        /* --- Countdown Container Redesign --- */
+        /* --- Countdown Container --- */
         .countdown-container {
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto 50px;
         }
 
-        .countdown-coming-soon {
+        .countdown-grid {
+            display: flex;
+            gap: clamp(10px, 2vw, 20px);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-unit {
+            flex: 1 1 110px;
+            max-width: 140px;
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px 10px;
             border-radius: 8px;
             text-align: center;
         }
 
         .countdown-value {
             display: block;
-            font-size: clamp(32px, 6vw, 54px);
+            font-size: clamp(32px, 6vw, 48px);
             font-weight: 900;
             font-family: 'Montserrat', sans-serif;
             color: var(--ted-red);
             text-shadow: 0 0 15px rgba(235, 0, 40, 0.3);
             line-height: 1.1;
             letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .countdown-label {
+            display: block;
+            margin-top: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--gray);
             text-transform: uppercase;
         }
 
@@ -522,6 +541,17 @@
             padding: 80px 0 40px; 
             border-top: 1px solid #1a1a1a; 
             font-size: 14px;
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ted-red) 0%, rgba(235, 0, 40, 0.4) 50%, transparent 100%);
         }
 
         .footer-grid {
@@ -638,6 +668,33 @@
 
         .footer-bottom p {
             margin: 0;
+        }
+
+        .footer-contact {
+            color: var(--gray);
+            line-height: 1.9;
+            margin-bottom: 15px;
+        }
+
+        .footer-contact strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .footer-cta {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--ted-red);
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 12px;
+            transition: var(--transition);
+        }
+
+        .footer-cta:hover {
+            color: var(--white);
         }
 
         /* --- Accessibility Modal --- */
@@ -772,6 +829,49 @@
                 padding: 60px 20px;
             }
         }
+
+        /* --- Partner Logos --- */
+        .partners-label {
+            text-align: center;
+            color: var(--gray);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 50px 0 35px;
+        }
+        .partners-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(16px, 3vw, 40px);
+            max-width: 1000px;
+            margin: 0 auto;
+            align-items: center;
+            justify-content: center;
+        }
+        .partner-logo {
+            flex: 0 0 auto;
+            width: clamp(120px, 16vw, 180px);
+            height: clamp(70px, 10vw, 110px);
+            background-color: #ffffff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            transition: var(--transition);
+            border: 2px solid #e0e0e0;
+        }
+        .partner-logo:hover {
+            border-color: var(--ted-red);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(235, 0, 40, 0.2);
+        }
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
     </style>
 </head>
 <body>
@@ -782,7 +882,7 @@
     <nav class="navbar">
         <div class="container nav-content">
             <a href="#" class="logo">
-                <img src="TEDxJohnsCreekYouthLogo.jpeg" alt="TEDxJohnsCreekYouth">
+                <img src="TEDxJohnsCreekLogo.jpeg" alt="TEDx Johns Creek">
             </a>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
@@ -805,7 +905,7 @@
         </video>
         <div class="hero-overlay" id="heroOverlay"></div>
         <div class="hero-content" id="heroContent">
-            <span class="hero-subtitle">Coming Soon</span>
+            <span class="hero-subtitle">Saturday, February 6, 2027</span>
             <h1 class="hero-title">THE NEXT<br>EVOLUTION</h1>
             <div class="hero-buttons" style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; animation: heroFade 2.4s ease-out;">
                 <a href="#about" class="cta-button">DISCOVER THE SPARK</a>
@@ -836,14 +936,14 @@
             <span class="section-tag">ABOUT THE EVENT</span>
             <h2 class="mission-title" style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900;">A Stage for the Future</h2>
             <p class="mission-text">
-                TEDxJohnsCreekYouth is an independently organized event that brings the spirit of TED to our local community. On <strong>a date coming soon</strong>, we will gather at <strong>Phase Events</strong> to witness the power of youth-led ideas. Our mission is to provide a world-class platform where the next generation of thinkers can share their unique perspectives and drive meaningful global change.
+                TEDx Johns Creek is an independently organized event that brings the spirit of TED to our local community. On <strong>Saturday, February 6, 2027</strong>, we will gather at <strong>Phase Events</strong> to witness the power of bold ideas. Our mission is to provide a world-class platform where the next generation of thinkers can share their unique perspectives and drive meaningful global change.
             </p>
         </div>
     </section>
 
     <section id="theme" class="mission">
         <div class="container">
-            <span class="section-tag">THE 2026 THEME</span>
+            <span class="section-tag">THE 2027 THEME</span>
             <h2 class="mission-title">"One <span class="spark-highlight">Spark</span> Can Ignite a Movement."</h2>
             <p class="mission-text">
                 The Spark is the beginning of everything. It's that fleeting moment of inspiration, the sudden realization, or the burning passion that refuses to be ignored. This year, we explore how individual "sparks" in Johns Creek are evolving into collective movements. From technology and art to social reform and science, we celebrate the ideas that are lighting the way toward the next evolution of our society.
@@ -854,11 +954,15 @@
     <section id="apply" class="apply">
         <div class="container">
             <div class="apply-card">
-                <span class="badge">OPENING SOON</span>
+                <span class="badge">APPLY NOW</span>
                 <h2 class="apply-title">Speaker & Volunteer Applications</h2>
-                <p style="margin-bottom: 45px; color: #888; font-size: 17px;">The evolution begins with you. Follow our Instagram to stay updated on speaker and volunteer applications.</p>
-                <div style="display: flex; justify-content: center;">
-                    <a href="https://www.instagram.com/tedxjohnscreek" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: flex; align-items: center; gap: 12px; padding: 18px 45px; font-size: 14px;">
+                <p style="margin-bottom: 45px; color: #888; font-size: 17px;">The next evolution begins with you. Download the TEDx Johns Creek 2027 application below, and follow our Instagram for updates.</p>
+                <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                    <a href="TEDx_Johns_Creek_Speaker_Application_Final_Feb_2027.pdf" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: flex; align-items: center; gap: 12px; padding: 18px 45px; font-size: 14px;">
+                        <i class="fas fa-file-pdf" style="font-size: 20px;"></i>
+                        DOWNLOAD APPLICATION
+                    </a>
+                    <a href="https://www.instagram.com/tedxjohnscreek" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: flex; align-items: center; gap: 12px; padding: 18px 45px; font-size: 14px; background: transparent; border: 2px solid var(--white); box-shadow: none;">
                         <i class="fab fa-instagram" style="font-size: 20px;"></i>
                         FOLLOW FOR UPDATES
                     </a>
@@ -875,7 +979,7 @@
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="divya.jpeg" alt="Divya Anand">
+                        <img src="divya.png" alt="Divya Anand" style="object-position: 65% 0%; transform-origin: 0% 100%; transform: scale(1.15);">
                     </div>
                     <h3 class="member-name">Divya Anand</h3>
                     <span class="member-role">Lead Organizer / Licensee</span>
@@ -883,15 +987,31 @@
 
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="Rajini.jpeg" alt="Rajini Stephen Britto">
+                        <img src="Jo.jpeg" alt="Jo Kethar">
                     </div>
-                    <h3 class="member-name">Rajini Stephen Britto</h3>
-                    <span class="member-role">Event Experience Lead</span>
+                    <h3 class="member-name">Jo Kethar</h3>
+                    <span class="member-role">Lead Coach</span>
                 </div>
 
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="Sudha.jpeg" alt="Sudha Rajasekaran">
+                        <img src="ninaadlakshman.png" alt="Ninaad Lakshman" style="object-position: 60% 36%;">
+                    </div>
+                    <h3 class="member-name">Ninaad Lakshman</h3>
+                    <span class="member-role">Lead Coach</span>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="Rajini.jpeg" alt="Rajini Stephen Britto" style="object-position: 99% 27%;">
+                    </div>
+                    <h3 class="member-name">Rajini Stephen Britto</h3>
+                    <span class="member-role">Event Operations Lead</span>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="Sudha.jpeg" alt="Sudha Rajasekaran" style="object-position: 29% 48%;">
                     </div>
                     <h3 class="member-name">Sudha Rajasekaran</h3>
                     <span class="member-role">Event Logistics Lead</span>
@@ -899,26 +1019,34 @@
 
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="yashadesai.jpeg" alt="Yasha Desai">
+                        <img src="yashadesai.jpeg" alt="Yasha Desai" style="object-position: 55% 19%;">
                     </div>
                     <h3 class="member-name">Yasha Desai</h3>
-                    <span class="member-role">Event Lead</span>
+                    <span class="member-role">Event Experience Lead</span>
                 </div>
 
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="SANDHYARAKESH.jpeg" alt="Sandhya Rakesh">
+                        <img src="SANDHYARAKESH.jpeg" alt="Sandhya Rakesh" style="object-position: 45% 50%;">
                     </div>
                     <h3 class="member-name">Sandhya Rakesh</h3>
-                    <span class="member-role">Event Lead</span>
+                    <span class="member-role">Event Experience Lead</span>
                 </div>
 
                 <div class="team-member">
                     <div class="member-img">
-                        <img src="harshit.jpeg" alt="Harshit Chaturvedy">
+                        <img src="harshit.png" alt="Harshit Chaturvedy" style="object-position: 75% 22%; transform-origin: 75% 22%; transform: scale(1.25);">
                     </div>
                     <h3 class="member-name">Harshit Chaturvedy</h3>
-                    <span class="member-role">Youth Leader / Web Developer</span>
+                    <span class="member-role">Web Developer</span>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-img">
+                        <img src="anvitha.png" alt="Anvitha Anand" style="object-position: 55% 50%;">
+                    </div>
+                    <h3 class="member-name">Anvitha Anand</h3>
+                    <span class="member-role">Coordinator</span>
                 </div>
             </div>
         </div>
@@ -929,13 +1057,20 @@
             <span class="section-tag">PARTNER WITH US</span>
             <h2 class="mission-title" style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900;">Fuel the Next Evolution</h2>
             <p class="mission-text" style="margin-bottom: 50px;">
-                Our movement is powered by visionaries who believe in the potential of youth. Partnering with TEDxJohnsCreekYouth is a unique opportunity to support local innovation, empower the next generation, and align your brand with ideas worth spreading. Join us in making a global impact from Johns Creek.
+                Our movement is powered by visionaries who believe in the potential of our community. Partnering with TEDx Johns Creek is a unique opportunity to support local innovation, empower the next generation, and align your brand with ideas worth spreading. Join us in making a global impact from Johns Creek.
             </p>
             <div style="display: flex; justify-content: center;">
                 <a href="mailto:tedxjohnscreek@gmail.com?subject=Sponsorship%20Inquiry" class="cta-button" style="display: flex; align-items: center; gap: 12px;">
                     <i class="fas fa-handshake" style="font-size: 18px;"></i>
                     BECOME A PARTNER
                 </a>
+            </div>
+            <p class="partners-label">OUR PARTNERS</p>
+            <div class="partners-grid">
+                <div class="partner-logo"><img src="CodeRepo.jpeg" alt="Code Repo"></div>
+                <div class="partner-logo"><img src="GG.jpeg" alt="GG"></div>
+                <a href="https://stem-sprouts.org" target="_blank" rel="noopener noreferrer" class="partner-logo"><img src="stem-sprouts.png" alt="STEM Sprouts"></a>
+                <div class="partner-logo"><img src="life.png" alt="Life"></div>
             </div>
         </div>
     </section>
@@ -945,14 +1080,29 @@
             <span class="section-tag">THE COUNTDOWN</span>
             
             <div class="countdown-container" id="countdown">
-                <div class="countdown-coming-soon">
-                    <span class="countdown-value">Coming Soon</span>
+                <div class="countdown-grid">
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countdown-days">--</span>
+                        <span class="countdown-label">Days</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countdown-hours">--</span>
+                        <span class="countdown-label">Hours</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countdown-minutes">--</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countdown-seconds">--</span>
+                        <span class="countdown-label">Seconds</span>
+                    </div>
                 </div>
             </div>
 
             <span class="section-tag">THE VENUE</span>
             <h2 class="mission-title" style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900; margin-bottom: 20px;">Phase Events</h2>
-            <p style="color: var(--ted-red); font-weight: 700; letter-spacing: 1px; margin-bottom: 40px;">12150 Morris Rd, Alpharetta, GA 30005</p>
+            <p style="color: var(--ted-red); font-weight: 700; letter-spacing: 1px; margin-bottom: 40px;">Saturday, February 6, 2027 &middot; 12150 Morris Rd, Alpharetta, GA 30005</p>
             <div style="border-radius: 12px; overflow: hidden; border: 1px solid #222; line-height: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
                 <iframe 
                     src="https://maps.google.com/maps?q=12150%20Morris%20Rd,%20Alpharetta,%20GA%2030005&t=&z=13&ie=UTF8&iwloc=&output=embed" 
@@ -965,5 +1115,168 @@
             </div>
         </div>
     </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo"><img src="TEDxJohnsCreekLogo.jpeg" alt="TEDx Johns Creek"></a>
+                    <p class="footer-tedx-info">An independently organized <strong>TEDx</strong> event operated under license from TED. Igniting ideas worth spreading, one spark at a time, in Johns Creek.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/tedxjohnscreek" class="social-icon" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/tedxjohns-creek/" class="social-icon" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:tedxjohnscreek@gmail.com" class="social-icon" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="footer-title">EXPLORE</span>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#theme" class="footer-link">The Theme</a>
+                    <a href="#apply" class="footer-link">Apply</a>
+                    <a href="#team" class="footer-link">Team</a>
+                    <a href="#partnership" class="footer-link">Partner</a>
+                    <a href="#venue" class="footer-link">Venue</a>
+                </div>
+
+                <div>
+                    <span class="footer-title">THE EVENT</span>
+                    <p class="footer-contact">
+                        <strong>Saturday, February 6, 2027</strong><br>
+                        Phase Events<br>
+                        12150 Morris Rd, Alpharetta, GA 30005
+                    </p>
+                    <a href="mailto:tedxjohnscreek@gmail.com" class="footer-link">tedxjohnscreek@gmail.com</a>
+                    <a href="#apply" class="footer-cta">Apply to Speak &rarr;</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2027 TEDx Johns Creek. All rights reserved.</p>
+                <p>Designed &amp; coded with &hearts; by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: var(--ted-red); text-decoration: none; font-weight: 600;">Harshit Chaturvedy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown to TEDx Johns Creek — Saturday, February 6, 2027
+        (function () {
+            var eventDate = new Date('February 6, 2027 00:00:00').getTime();
+            var daysEl = document.getElementById('countdown-days');
+            var hoursEl = document.getElementById('countdown-hours');
+            var minutesEl = document.getElementById('countdown-minutes');
+            var secondsEl = document.getElementById('countdown-seconds');
+
+            function pad(n) {
+                return n < 10 ? '0' + n : n;
+            }
+
+            function update() {
+                var diff = eventDate - new Date().getTime();
+                if (diff <= 0) {
+                    daysEl.textContent = '00';
+                    hoursEl.textContent = '00';
+                    minutesEl.textContent = '00';
+                    secondsEl.textContent = '00';
+                    return;
+                }
+                daysEl.textContent = pad(Math.floor(diff / (1000 * 60 * 60 * 24)));
+                hoursEl.textContent = pad(Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+                minutesEl.textContent = pad(Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)));
+                secondsEl.textContent = pad(Math.floor((diff % (1000 * 60)) / 1000));
+            }
+
+            update();
+            setInterval(update, 1000);
+        })();
+    </script>
+
+    <script>
+        // Scroll reveal for section titles
+        (function () {
+            var titles = document.querySelectorAll('.mission-title');
+            function revealVisible() {
+                var vh = window.innerHeight || document.documentElement.clientHeight;
+                titles.forEach(function (t) {
+                    if (t.classList.contains('reveal')) return;
+                    var r = t.getBoundingClientRect();
+                    if (r.top < vh - 100 && r.bottom > 0) {
+                        t.classList.add('reveal');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealVisible, { passive: true });
+            window.addEventListener('load', revealVisible);
+            revealVisible();
+        })();
+    </script>
+
+    <script>
+        // Back to top button
+        (function () {
+            var btn = document.getElementById('scrollToTop');
+            if (!btn) return;
+            window.addEventListener('scroll', function () {
+                btn.classList.toggle('visible', window.scrollY > 300);
+            }, { passive: true });
+            btn.addEventListener('click', function () {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        })();
+    </script>
+
+    <script>
+        // Hero video controls — mute/unmute toggle
+        (function () {
+            var video = document.getElementById('heroVideo');
+            var muteBtn = document.getElementById('muteToggle');
+            var muteIcon = document.getElementById('muteIcon');
+            var infoBtn = document.getElementById('infoToggle');
+            var heroContent = document.getElementById('heroContent');
+
+            if (!video || !muteBtn || !muteIcon) return;
+
+            function hideText() {
+                if (heroContent) heroContent.classList.add('fade-out');
+                if (infoBtn) {
+                    infoBtn.classList.add('visible');
+                    infoBtn.setAttribute('title', 'Show Text');
+                }
+            }
+
+            function showText() {
+                if (heroContent) heroContent.classList.remove('fade-out');
+                if (infoBtn) {
+                    infoBtn.classList.remove('visible');
+                    infoBtn.setAttribute('title', 'Show Info');
+                }
+            }
+
+            function updateIcon() {
+                if (video.muted) {
+                    muteIcon.className = 'fas fa-volume-mute';
+                    muteBtn.setAttribute('title', 'Unmute');
+                    showText();
+                } else {
+                    muteIcon.className = 'fas fa-volume-up';
+                    muteBtn.setAttribute('title', 'Mute');
+                    hideText();
+                }
+            }
+
+            muteBtn.addEventListener('click', function () {
+                video.muted = !video.muted;
+                updateIcon();
+            });
+
+            if (infoBtn) {
+                infoBtn.addEventListener('click', showText);
+            }
+
+            video.addEventListener('volumechange', updateIcon);
+            updateIcon();
+        })();
+    </script>
+
 </body>
 </html>
