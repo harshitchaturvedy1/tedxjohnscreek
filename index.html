@@ -19,11 +19,11 @@
     <meta name="twitter:description" content="TEDx Johns Creek presents Spark the Future on February 6, 2027 in Alpharetta, Georgia.">
     <meta name="twitter:image" content="https://tedxjohnscreek.org/TEDxJohnsCreekLogo.jpeg">
     <link rel="icon" type="image/jpeg" href="tedxfavicon.jpeg">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -263,8 +263,8 @@
         }
 
         .mute-btn { right: 30px; }
-        .info-btn { 
-            left: 30px; 
+        .info-btn {
+            left: 30px;
             opacity: 0;
             visibility: hidden;
         }
@@ -548,12 +548,44 @@
             margin-bottom: 10px;
         }
 
+        /* --- Speakers Section --- */
+        .speakers {
+            padding: 150px 0;
+            background: #0a0a0a;
+            text-align: center;
+        }
+
+        .speakers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 40px;
+            margin-top: 80px;
+        }
+
+        .speaker-card img {
+            width: 100%;
+            aspect-ratio: 1086 / 1448;
+            object-fit: cover;
+            object-position: top center;
+            display: block;
+            border-radius: 6px;
+            border: 1px solid #222;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: var(--transition);
+        }
+
+        .speaker-card:hover img {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 40px rgba(235, 0, 40, 0.3);
+            border-color: var(--ted-red);
+        }
+
         /* --- Footer --- */
-        footer { 
-            background-color: var(--black); 
-            color: #888888; 
-            padding: 80px 0 40px; 
-            border-top: 1px solid #1a1a1a; 
+        footer {
+            background-color: var(--black);
+            color: #888888;
+            padding: 80px 0 40px;
+            border-top: 1px solid #1a1a1a;
             font-size: 14px;
             position: relative;
         }
@@ -610,62 +642,62 @@
             color: var(--ted-red);
         }
 
-        .social-links { 
-            display: flex; 
-            gap: 15px; 
+        .social-links {
+            display: flex;
+            gap: 15px;
             margin-top: 5px;
         }
 
-        .social-icon { 
-            width: 40px; 
-            height: 40px; 
-            border: 1px solid #333; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            transition: var(--transition); 
-            color: var(--white); 
-            text-decoration: none; 
-            font-size: 16px; 
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
         }
 
-        .social-icon:hover { 
-            background-color: var(--ted-red); 
-            border-color: var(--ted-red); 
-            transform: translateY(-3px); 
+        .social-icon:hover {
+            background-color: var(--ted-red);
+            border-color: var(--ted-red);
+            transform: translateY(-3px);
         }
 
-        .scroll-to-top { 
-            position: fixed; 
-            bottom: 30px; 
-            right: 30px; 
-            width: 50px; 
-            height: 50px; 
-            background-color: var(--ted-red); 
-            color: var(--white); 
-            border: none; 
-            border-radius: 50%; 
-            font-size: 20px; 
-            cursor: pointer; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            box-shadow: 0 4px 20px rgba(235,0,40,0.4); 
-            transition: var(--transition); 
-            opacity: 0; 
-            visibility: hidden; 
-            z-index: 999; 
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--ted-red);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(235,0,40,0.4);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
         }
 
-        .scroll-to-top.visible { 
-            opacity: 1; 
-            visibility: visible; 
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
         }
 
-        .scroll-to-top:hover { 
-            background-color: #c40022; 
-            transform: translateY(-5px); 
+        .scroll-to-top:hover {
+            background-color: #c40022;
+            transform: translateY(-5px);
             box-shadow: 0 6px 25px rgba(235,0,40,0.6);
         }
 
@@ -932,6 +964,7 @@
                 <li><a href="#theme">The Theme</a></li>
                 <li><a href="#apply">Apply</a></li>
                 <li><a href="#team">Team</a></li>
+                <li><a href="#speakers">Speakers</a></li>
                 <li><a href="#partnership">Partner</a></li>
                 <li><a href="#venue">Venue</a></li>
                 <li><a href="main.html">Past Events</a></li>
@@ -997,15 +1030,10 @@
     <section id="apply" class="apply">
         <div class="container">
             <div class="apply-card">
-                <span class="badge">APPLY NOW</span>
+                <span class="badge">APPLICATIONS CLOSED</span>
                 <h2 class="apply-title">Speaker & Volunteer Applications</h2>
-                <p style="margin-bottom: 45px; color: #888; font-size: 17px;">The next evolution begins with you. Download the TEDx Johns Creek 2027 application below, and follow our Instagram for updates.</p>
-                <p style="margin-top: -25px; margin-bottom: 30px; color: #fff; font-size: 17px;"><strong>Application deadline: November 15, 2026.</strong></p>
+                <p style="margin-bottom: 45px; color: #888; font-size: 17px;">Thank you to everyone who applied. Our speaker lineup is set, and we are grateful for every story you shared with us. Follow our Instagram for updates.</p>
                 <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                    <a href="TEDx_Johns_Creek_Speaker_Application_Final_Feb_2027.pdf" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: flex; align-items: center; gap: 12px; padding: 18px 45px; font-size: 14px;">
-                        <i class="fas fa-file-pdf" style="font-size: 20px;"></i>
-                        DOWNLOAD APPLICATION
-                    </a>
                     <a href="https://www.instagram.com/tedxjohnscreek" target="_blank" rel="noopener noreferrer" class="cta-button" style="display: flex; align-items: center; gap: 12px; padding: 18px 45px; font-size: 14px; background: transparent; border: 2px solid var(--white); box-shadow: none;">
                         <i class="fab fa-instagram" style="font-size: 20px;"></i>
                         FOLLOW FOR UPDATES
@@ -1019,7 +1047,7 @@
         <div class="container">
             <span class="section-tag">THE SPARK MAKERS</span>
             <h2 style="font-size: 42px; text-align: center; font-weight: 900; letter-spacing: -1px;">Organizing Team</h2>
-            
+
             <div class="team-grid">
                 <div class="team-member">
                     <div class="member-img">
@@ -1096,6 +1124,46 @@
         </div>
     </section>
 
+    <section id="speakers" class="speakers">
+        <div class="container">
+            <span class="section-tag">THE SPEAKERS</span>
+            <h2 style="font-size: 42px; text-align: center; font-weight: 900; letter-spacing: -1px;">Spark Speakers</h2>
+
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <img src="chalea-stafford.jpeg" alt="Cha'Lea Stafford, speaker at TEDx Johns Creek">
+                </div>
+                <div class="speaker-card">
+                    <img src="andy-robinson.jpeg" alt="Andy Robinson, speaker at TEDx Johns Creek">
+                </div>
+                <div class="speaker-card">
+                    <img src="rachna-relwani.jpeg" alt="Dr. Rachna Relwani, speaker at TEDx Johns Creek">
+                </div>
+                <div class="speaker-card">
+                    <img src="evan-snow.jpeg" alt="Evan Snow, speaker at TEDx Johns Creek">
+                </div>
+                <div class="speaker-card">
+                    <img src="valerie-menzel.jpeg" alt="Valerie Menzel, speaker at TEDx Johns Creek">
+                </div>
+                <div class="speaker-card">
+                    <img src="gargi-surange.jpeg" alt="Gargi Surange, speaker at TEDx Johns Creek">
+                </div>
+                <div class="speaker-card">
+                    <img src="sai-donti.jpeg" alt="Sai Donti, speaker at TEDx Johns Creek">
+                </div>
+                <div class="speaker-card">
+                    <img src="maria-hayes.jpeg" alt="Maria Hayes, speaker at TEDx Johns Creek">
+                </div>
+                <div class="speaker-card">
+                    <img src="candice-morrow.jpeg" alt="Candice Morrow, speaker at TEDx Johns Creek">
+                </div>
+                <div class="speaker-card">
+                    <img src="jordan-ibekwe.jpeg" alt="Jordan Ibekwe, speaker at TEDx Johns Creek">
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="partnership" class="mission" style="background: linear-gradient(180deg, #0a0a0a 0%, var(--black) 100%);">
         <div class="container">
             <span class="section-tag">PARTNER WITH US</span>
@@ -1122,7 +1190,7 @@
     <section id="venue" class="mission" style="padding-top: 50px;">
         <div class="container">
             <span class="section-tag">THE COUNTDOWN</span>
-            
+
             <div class="countdown-container" id="countdown">
                 <div class="countdown-grid">
                     <div class="countdown-unit">
@@ -1148,13 +1216,13 @@
             <h2 class="mission-title" style="font-style: normal; font-family: 'Montserrat', sans-serif; font-weight: 900; margin-bottom: 20px;">Phase Events</h2>
             <p style="color: var(--ted-red); font-weight: 700; letter-spacing: 1px; margin-bottom: 40px;">Saturday, February 6, 2027 &middot; 12150 Morris Rd, Alpharetta, GA 30005</p>
             <div style="border-radius: 12px; overflow: hidden; border: 1px solid #222; line-height: 0; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-                <iframe 
+                <iframe
                     title="Map showing Phase Events at 12150 Morris Road, Alpharetta, Georgia"
-                    src="https://maps.google.com/maps?q=12150%20Morris%20Rd,%20Alpharetta,%20GA%2030005&t=&z=13&ie=UTF8&iwloc=&output=embed" 
-                    width="100%" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
+                    src="https://maps.google.com/maps?q=12150%20Morris%20Rd,%20Alpharetta,%20GA%2030005&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
                     loading="lazy">
                 </iframe>
             </div>
@@ -1180,6 +1248,7 @@
                     <a href="#theme" class="footer-link">The Theme</a>
                     <a href="#apply" class="footer-link">Apply</a>
                     <a href="#team" class="footer-link">Team</a>
+                    <a href="#speakers" class="footer-link">Speakers</a>
                     <a href="#partnership" class="footer-link">Partner</a>
                     <a href="#venue" class="footer-link">Venue</a>
                 </div>
@@ -1198,13 +1267,13 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2027 TEDx Johns Creek. All rights reserved.</p>
-                <p>Designed &amp; coded with &hearts; by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: var(--ted-red); text-decoration: none; font-weight: 600;">Harshit Chaturvedy</a></p>
+                <p>Designed by <a href="https://harshitchaturvedy.com" target="_blank" rel="noopener noreferrer" style="color: var(--ted-red); text-decoration: none; font-weight: 600;">Harshit Chaturvedy</a></p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Countdown to TEDx Johns Creek — Saturday, February 6, 2027
+        // Countdown to TEDx Johns Creek - Saturday, February 6, 2027
         (function () {
             var eventDate = new Date('February 6, 2027 00:00:00').getTime();
             var daysEl = document.getElementById('countdown-days');
@@ -1271,7 +1340,7 @@
     </script>
 
     <script>
-        // Hero video controls — mute/unmute toggle
+        // Hero video controls - mute/unmute toggle
         (function () {
             var video = document.getElementById('heroVideo');
             var muteBtn = document.getElementById('muteToggle');
